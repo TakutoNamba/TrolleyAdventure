@@ -62,6 +62,18 @@
     <Compile Include="Assets\Scripts\PositionModifier.cs" />
     <Compile Include="Assets\Scripts\RootController.cs" />
     <Compile Include="Assets\Scripts\TrolleyMoveController.cs" />
+    <Compile Include="Assets\Scripts\CSVProcessing.cs" />
+    <Compile Include="Assets\Scripts\QuizChoicesData.cs" />
+    <Compile Include="Assets\Scripts\QuizQuestionsData.cs" />
+    <Compile Include="Assets\CSVSerializer\CSVSerializer.cs" />
+    <Compile Include="Assets\CSVSerializer\Demo\CSVImportExample.cs" />
+    <Compile Include="Assets\CSVSerializer\Demo\Scene\UIRankingWinSlot.cs" />
+    <Compile Include="Assets\CSVSerializer\Demo\ConstData.cs" />
+    <Compile Include="Assets\CSVSerializer\Demo\Scene\UIRanking.cs" />
+    <Compile Include="Assets\CSVSerializer\Demo\RankingData.cs" />
+    <Compile Include="Assets\CSVSerializer\Demo\Scene\UIRankingSlot.cs" />
+    <Compile Include="Assets\CSVSerializer\Demo\LanguageStringData.cs" />
+    <Compile Include="Assets\CSVSerializer\Demo\CSVImportExampleFromWeb.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
