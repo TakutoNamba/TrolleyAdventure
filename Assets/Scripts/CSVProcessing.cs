@@ -8,6 +8,8 @@ public class CSVProcessing : MonoBehaviour
     public QuizQuestionsData[] questionsData;
     public QuizChoicesData[] choicesData;
 
+    private List<int> questionOptions = new List<int>();
+
     void Awake()
     {
         //　テキストファイルの読み込みを行ってくれるクラス
@@ -21,10 +23,66 @@ public class CSVProcessing : MonoBehaviour
         textasset = Resources.Load("QuizChoicesData", typeof(TextAsset)) as TextAsset;
         choicesData = CSVSerializer.Deserialize<QuizChoicesData>(textasset.text);
 
+        resetSetting();
+
+        
+
     }
 
     void Update()
     {
         
     }
+
+    public string getQuestionDatas(int num)
+    {
+        return questionsData[num].question_contents;
+    }
+
+
+
+    public string getChoicesData(int num, bool isAnswer)
+    {
+        for(int i=0; i < choicesData.Length; i++)
+        {
+            if(choicesData[i].question_id == num)
+            {
+                if(choicesData[i].is_answer == isAnswer)
+                {
+                    return choicesData[i].question_options;
+                }
+            }
+        }
+
+        return null;
+    }
+
+    public int pickQuestionNum()
+    {
+        int index = Random.Range(0, questionOptions.Count);
+        int ransu = questionOptions[index];
+        questionOptions.RemoveAt(index);
+
+        return ransu;
+    }
+
+    private void resetSetting()
+    {
+        int totalQuestions = getHowmanyQuestions();
+        for (int i = 0; i < totalQuestions; i++)
+        {
+            questionOptions.Add(i);
+        }
+
+
+
+
+    }
+
+    public int getHowmanyQuestions()
+    {
+        return questionsData.Length;
+    }
+
+
 }

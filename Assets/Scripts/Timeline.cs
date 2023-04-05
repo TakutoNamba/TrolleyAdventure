@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using TMPro;
+using UnityEngine.UI;
+
 
 
 public class Timeline : MonoBehaviour
@@ -10,7 +12,11 @@ public class Timeline : MonoBehaviour
     public GameObject QuestionPanel;
     public GameObject Answer_Left;
     public GameObject Answer_Right;
+    public GameObject Answer_Left_Name;
+    public GameObject Answer_Right_Name;
     public GameObject CountdownText;
+    public GameObject QuestionText;
+    public GameObject Circle;
 
     private float baseImageSize;
 
@@ -20,9 +26,22 @@ public class Timeline : MonoBehaviour
     public event CountEventHandler OnCountZero; // define an event to handle the end of the countdown
     private bool isCounting = false;
 
+    public GameObject databaseManager;
+    private CSVProcessing csvProcessing;
+
+    private int correctAnswer;
+    private int playerAnswer;
+
+
     void Awake()
     {
         Input.gyro.enabled = true;
+        csvProcessing = databaseManager.GetComponent<CSVProcessing>();
+    }
+
+    void Start()
+    {
+
     }
 
     void Update()
@@ -30,6 +49,11 @@ public class Timeline : MonoBehaviour
         if(isCounting)
         {
             DetectPlayersAnswer();
+        }
+
+        if(Input.GetKeyDown(KeyCode.Q))
+        {
+            Debug.Log(databaseManager.GetComponent<CSVProcessing>().getQuestionDatas(0));
         }
     }
 
@@ -97,24 +121,84 @@ public class Timeline : MonoBehaviour
 
     }
 
+    public void decideQuestionsFromDatabase()
+    {
+        //ランダムにクイズの問題を決定
+        int quizNum = csvProcessing.pickQuestionNum();
+
+        //QuizDatabseManager から問題文/選択肢を取り出す
+        string question_contents = csvProcessing.getQuestionDatas(quizNum);
+        string question_True_Option = csvProcessing.getChoicesData(quizNum, true);
+        string question_False_Option = csvProcessing.getChoicesData(quizNum, false);
+
+        //Resources/Images/ から問題を取り出す
+        Sprite Answer_True_Image = Resources.Load<Sprite>("Images/" + quizNum.ToString() + "1");
+        Sprite Answer_False_Image = Resources.Load<Sprite>("Images/" + quizNum.ToString() + "0");
+
+
+        //問題文/選択肢を差し替える, 画像をあてる
+        QuestionText.GetComponent<TextMeshProUGUI>().text = question_contents;
+        int setOptionsRandom = Random.Range(0, 1);
+        if(setOptionsRandom == 0)
+        {
+            Answer_Left.GetComponent<Image>().sprite = Answer_True_Image;
+            Answer_Right.GetComponent<Image>().sprite = Answer_False_Image;
+
+            // Left に 0
+            Answer_Left_Name.GetComponent<TextMeshProUGUI>().text = question_True_Option;
+            // Right に 残った方
+            Answer_Right_Name.GetComponent<TextMeshProUGUI>().text = question_False_Option;
+
+            correctAnswer = 0;
+
+        }
+        else
+        {
+            Answer_Left.GetComponent<Image>().sprite = Answer_False_Image;
+            Answer_Right.GetComponent<Image>().sprite = Answer_True_Image;
+
+            // Left に 1
+            Answer_Left_Name.GetComponent<TextMeshProUGUI>().text = question_False_Option;
+            Answer_Right_Name.GetComponent<TextMeshProUGUI>().text = question_True_Option;
+
+            correctAnswer = 1;
+        }
+
+    }
+
+
+
     public int getPlayersAnswer()
     {
         if (Answer_Left.transform.localScale.x > Answer_Right.transform.localScale.x)
         {
-            return 0;
+            playerAnswer = 0;
         }
         else if (Answer_Left.transform.localScale.x < Answer_Right.transform.localScale.x)
         {
-            return 1;
+            playerAnswer = 1;
         }
         else
         {
-            return Random.Range(0, 1);
+            playerAnswer = Random.Range(0, 1);
         }
+
+        return playerAnswer;
     }
 
-    public void verifyAnswer()
+    public void showQuizAnswer()
     {
+        if(playerAnswer == correctAnswer)
+        {
+            //正解 -> タイムライン変わらず 〇を表示
+            Circle.GetComponent<Animator>().SetTrigger("ShowCircleTrigger");
+        }
+        else
+        {
+            //不正解 -> 問題番号に応じて別のタイムラインに移動, ×用のアニメーションスタート
+
+        }
+
 
     }
 

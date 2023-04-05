@@ -1,3 +1,5 @@
 id,question_options,is_answer,question_id
 0,Nike,true,0
 1,Hera,false,0
+2,Winter,true,1
+2,Spring,false,1
