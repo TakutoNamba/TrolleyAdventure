@@ -11,6 +11,7 @@ public class ButtonScript : MonoBehaviour
 {
     Image image;
     public PlayableDirector _timeline;
+    public PlayableDirector _timeline_gameOver;
     public TextMeshProUGUI _text;
     private void Awake()
     {
@@ -31,5 +32,6 @@ public class ButtonScript : MonoBehaviour
             ); ;
 
         _timeline.Play();
+        _timeline_gameOver.Play();
     }
 }

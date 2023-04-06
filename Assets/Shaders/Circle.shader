@@ -2,10 +2,10 @@ Shader "Unlit/Circle"
 {
     Properties
     {
-        _MainTex ("Texture", 2D) = "white" {}
-        _CircleSize("_CircleSize", Float) = 0.4
-        _CircleThickness("_CircleThickness", Float) = 0.1
-        _Alpha("_Alpha", Float) = 1
+        _BaseColor("BaseColor", Color) = (1, 1, 1, 1)
+        _CircleSize("CircleSize", Float) = 0.4
+        _CircleThickness("CircleThickness", Float) = 0.1
+        _Alpha("Alpha", Float) = 1
         //_CircleScale("CirlceScale", Float) = 
 
     }
@@ -39,6 +39,7 @@ Shader "Unlit/Circle"
 
             sampler2D _MainTex;
             float4 _MainTex_ST;
+            float4 _BaseColor;
             float _CircleSize;
             float _CircleThickness;
             float _Alpha;
@@ -55,7 +56,7 @@ Shader "Unlit/Circle"
             {
                 fixed r = distance(i.uv, fixed2(0.5, 0.5));
                 fixed c = step(_CircleSize, r) * _Alpha;
-                fixed4 c_final = lerp(c, fixed4(0.0, 0.0, 0.0, 0), step(_CircleSize + _CircleThickness, r));
+                fixed4 c_final = lerp(c, fixed4(0.0, 0.0, 0.0, 0), step(_CircleSize + _CircleThickness, r)) * _BaseColor;
                 return c_final;
             }
             ENDCG

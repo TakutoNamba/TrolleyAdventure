@@ -4,6 +4,9 @@ using UnityEngine;
 using DG.Tweening;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.Playables;
+using UnityEngine.Animations;
+using UnityEngine.Timeline;
 
 
 
@@ -31,6 +34,8 @@ public class Timeline : MonoBehaviour
 
     private int correctAnswer;
     private int playerAnswer;
+
+    public GameObject timeline_gameOver;
 
 
     void Awake()
@@ -73,6 +78,14 @@ public class Timeline : MonoBehaviour
             .SetEase(Ease.OutQuad)
             .SetDelay(2f);
 
+        Answer_Left_Name.transform.DOScale(new Vector3(1.5f, 1.5f, 1), 0.5f)
+            .SetEase(Ease.OutQuad)
+            .SetDelay(2f);
+
+        Answer_Right_Name.transform.DOScale(new Vector3(1.5f, 1.5f, 1), 0.5f)
+            .SetEase(Ease.OutQuad)
+            .SetDelay(2f);
+
     }
 
     public void startCountdown()
@@ -97,15 +110,26 @@ public class Timeline : MonoBehaviour
             ); ;
 
         List<GameObject> Answers = new List<GameObject> { Answer_Left, Answer_Right };
+        List<GameObject> Answer_texts = new List<GameObject> { Answer_Left_Name, Answer_Right_Name };
+        int answerSide = getPlayersAnswer();
 
         //Let players answer move to the center
-        Answers[getPlayersAnswer()].transform.DOLocalMove(new Vector3(0 - Answers[getPlayersAnswer()].transform.localPosition.x, 0, 0), 0.2f)
+        Answers[answerSide].transform.DOLocalMove(new Vector3(0 - Answers[answerSide].transform.localPosition.x, 0, 0), 0.2f)
+            .SetEase(Ease.OutQuad)
+            .SetRelative()
+            .SetDelay(1f);
+
+        Answer_texts[answerSide].transform.DOLocalMove(new Vector3(0 - Answer_texts[answerSide].transform.localPosition.x, 0, 0), 0.2f)
             .SetEase(Ease.OutQuad)
             .SetRelative()
             .SetDelay(1f);
 
         //Make other answer disappear
-        Answers[1 - getPlayersAnswer()].transform.DOScale(new Vector3(0.01f, 0.01f, 1), 0.2f)
+        Answers[1 - answerSide].transform.DOScale(new Vector3(0.01f, 0.01f, 1), 0.2f)
+            .SetEase(Ease.OutQuad)
+            .SetDelay(1f);
+
+        Answer_texts[1 - answerSide].transform.DOScale(new Vector3(0.01f, 0.01f, 1), 0.2f)
             .SetEase(Ease.OutQuad)
             .SetDelay(1f);
 
@@ -190,16 +214,37 @@ public class Timeline : MonoBehaviour
     {
         if(playerAnswer == correctAnswer)
         {
-            //正解 -> タイムライン変わらず 〇を表示
+            //正解 -> 〇を表示
             Circle.GetComponent<Animator>().SetTrigger("ShowCircleTrigger");
+
         }
         else
         {
-            //不正解 -> 問題番号に応じて別のタイムラインに移動, ×用のアニメーションスタート
 
         }
 
+    }
 
+    public void changePath()
+    {
+        if (playerAnswer == correctAnswer)
+        {
+            //正解 -> タイムライン変わらず
+        }
+        else
+        {
+            //不正解 -> 問題番号に応じて別のタイムラインに移動
+            goThroughWrongPath();
+        }
+    }
+
+    private void goThroughWrongPath()
+    {
+        GetComponent<PlayableDirector>().Pause();
+        timeline_gameOver.GetComponent<TrolleyMoveController>().enabled = true;
+        //GetComponent<TrolleyMoveController>().enabled = false;
+        //timeline_gameOver.GetComponent<TrolleyMoveController>().enabled = true;
+        //timeline_gameOver.GetComponent<PlayableDirector>().Play();
     }
 
 
@@ -236,19 +281,29 @@ public class Timeline : MonoBehaviour
     private void DetectPlayersAnswer()
     {
         //Quaternion rotation = Input.gyro.attitude;
-        //float tiltAngle = Mathf.Clamp(rotation.eulerAngles.z, -30, 30);
-        //float modified_tiltAngle = (tiltAngle / 60) + 1;
+        //float baseAngle = rotation.eulerAngles.z;
 
-        //float leftImageSize = baseImageSize * modified_tiltAngle;
-        //float rightImageSize = baseImageSize * ( 2 - modified_tiltAngle);
+        //if (baseAngle > 180)
+        //{
+        //    baseAngle -= 360;
+        //}
+
+        //float tiltAngle = Mathf.Clamp(baseAngle, -30, 30);
+        //float sizeScale = (tiltAngle / 60) + 1;
+
+
+
+        //float leftImageSize = baseImageSize * sizeScale;
+        //float rightImageSize = baseImageSize * (2 - sizeScale);
 
         //Answer_Left.transform.localScale = new Vector3(leftImageSize, leftImageSize, 1);
         //Answer_Right.transform.localScale = new Vector3(rightImageSize, rightImageSize, 1);
 
-        float BiggerSize = baseImageSize * 1.5f;
-        float SmallerSize = baseImageSize * 0.5f;
 
         //PC テスト用スクリプト
+        float BiggerSize = baseImageSize * 1.2f;
+        float SmallerSize = baseImageSize * 0.8f;
+
         if (Input.GetKeyDown(KeyCode.A) && Answer_Left.transform.localScale.x == Answer_Right.transform.localScale.x)
         {
             Answer_Left.transform.DOScale(new Vector3(BiggerSize, BiggerSize, 1), 0.2f)
@@ -284,5 +339,5 @@ public class Timeline : MonoBehaviour
         }
     }
 
-    
+
 }

@@ -34,5 +34,6 @@ Material:
     - _CircleThickness: 0.1
     - _InnerCircleSize: 0.45
     - _OuterCircleSize: 0.53
-    m_Colors: []
+    m_Colors:
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
