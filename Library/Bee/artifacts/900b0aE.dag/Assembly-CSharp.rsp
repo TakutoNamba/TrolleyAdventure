@@ -397,6 +397,7 @@
 "Assets/Scripts/RootController.cs"
 "Assets/Scripts/Timeline.cs"
 "Assets/Scripts/TrolleyMoveController.cs"
+"Assets/UI pack/Scripts/FillValueNumber.cs"
 -langversion:9.0
 
 /deterministic

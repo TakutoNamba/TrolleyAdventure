@@ -7,7 +7,7 @@ using UnityEngine.UI;
 using UnityEngine.Playables;
 using UnityEngine.Animations;
 using UnityEngine.Timeline;
-
+using UnityEngine.SceneManagement;
 
 
 public class Timeline : MonoBehaviour
@@ -19,7 +19,13 @@ public class Timeline : MonoBehaviour
     public GameObject Answer_Right_Name;
     public GameObject CountdownText;
     public GameObject QuestionText;
-    public GameObject Circle;
+    public GameObject CorrectAnswer;
+    public GameObject FalseAnswer;
+    public GameObject GameoverText;
+
+    public GameObject RetryButton;
+    public GameObject EndButton;
+
 
     private float baseImageSize;
 
@@ -28,6 +34,7 @@ public class Timeline : MonoBehaviour
     public event CountEventHandler OnCount; // define an event to handle count events
     public event CountEventHandler OnCountZero; // define an event to handle the end of the countdown
     private bool isCounting = false;
+    private bool isAnswerCorrect = true;
 
     public GameObject databaseManager;
     private CSVProcessing csvProcessing;
@@ -36,6 +43,10 @@ public class Timeline : MonoBehaviour
     private int playerAnswer;
 
     public GameObject timeline_gameOver;
+    public GameObject coverImage;
+    private float coverImageAlpha;
+
+
 
 
     void Awake()
@@ -56,10 +67,6 @@ public class Timeline : MonoBehaviour
             DetectPlayersAnswer();
         }
 
-        if(Input.GetKeyDown(KeyCode.Q))
-        {
-            Debug.Log(databaseManager.GetComponent<CSVProcessing>().getQuestionDatas(0));
-        }
     }
 
     public void showQuestionPanel()
@@ -206,7 +213,7 @@ public class Timeline : MonoBehaviour
         {
             playerAnswer = Random.Range(0, 1);
         }
-
+        Debug.Log(playerAnswer);
         return playerAnswer;
     }
 
@@ -215,25 +222,112 @@ public class Timeline : MonoBehaviour
         if(playerAnswer == correctAnswer)
         {
             //正解 -> 〇を表示
-            Circle.GetComponent<Animator>().SetTrigger("ShowCircleTrigger");
+            CorrectAnswer.GetComponent<Animator>().SetTrigger("ShowCircleTrigger");
 
         }
         else
         {
-
+            FalseAnswer.GetComponent<Animator>().SetTrigger("ShowFalseTrigger");
         }
 
     }
+
+    public void showGameover()
+    {
+        if(!isAnswerCorrect)
+        {
+            DOTween.To
+                (
+                () => GameoverText.GetComponent<TextMeshProUGUI>().alpha,
+                (x) => GameoverText.GetComponent<TextMeshProUGUI>().alpha = x,
+                1,
+                .5f
+                );
+        }
+
+    }
+
+    public void displayContinueOptions()
+    {
+        DOTween.To
+        (
+            () => RetryButton.transform.Find("Text").GetComponent<TextMeshProUGUI>().alpha,
+            (x) => RetryButton.transform.Find("Text").GetComponent<TextMeshProUGUI>().alpha = x,
+            1,
+            .5f
+        );
+        DOTween.To
+        (
+            () => EndButton.transform.Find("Text").GetComponent<TextMeshProUGUI>().alpha,
+            (x) => EndButton.transform.Find("Text").GetComponent<TextMeshProUGUI>().alpha = x,
+            1,
+            .5f
+        );
+        RetryButton.GetComponent<Image>().DOFade(1, .5f);
+        EndButton.GetComponent<Image>().DOFade(1, .5f);
+    }
+
+    public void displayReturnOptions()
+    {
+        if(!isAnswerCorrect)
+        {
+            coverImage.GetComponent<Image>().DOFade(0.8f, 0.5f);
+
+            DOTween.To
+            (
+                () => RetryButton.transform.Find("Text").GetComponent<TextMeshProUGUI>().alpha,
+                (x) => RetryButton.transform.Find("Text").GetComponent<TextMeshProUGUI>().alpha = x,
+                1,
+                .5f
+            ).SetDelay(2.0f);
+            DOTween.To
+            (
+                () => EndButton.transform.Find("Text").GetComponent<TextMeshProUGUI>().alpha,
+                (x) => EndButton.transform.Find("Text").GetComponent<TextMeshProUGUI>().alpha = x,
+                1,
+                .5f
+            ).SetDelay(2.0f);
+            RetryButton.GetComponent<Image>().DOFade(1, .5f).SetDelay(2.0f);
+            EndButton.GetComponent<Image>().DOFade(1, .5f).SetDelay(2.0f);
+        }
+
+
+    }
+
+    public void BackToRetry()
+    {
+        Scene loadScene = SceneManager.GetActiveScene();
+        // 現在のシーンを再読み込みする
+        SceneManager.LoadScene(loadScene.name);
+    }
+
+    public void BackToMenu()
+    {
+
+    }
+
+    //public void OnGUI()
+    //{
+    //    // カメラのサイズで画面全体に描画.
+    //    coverImage = new Texture2D(1, 1, TextureFormat.ARGB32, false);
+    //    // 黒のアルファ0.5で薄暗い感じにする.
+    //    coverImage.SetPixel(0, 0, new Color(0, 0, 0, coverImageAlpha));
+    //    // これをしないと色が適用されない.
+    //    coverImage.Apply();
+    //    GUI.DrawTexture(Camera.main.pixelRect, coverImage);
+    //}
 
     public void changePath()
     {
         if (playerAnswer == correctAnswer)
         {
             //正解 -> タイムライン変わらず
+            isAnswerCorrect = true;
         }
         else
         {
             //不正解 -> 問題番号に応じて別のタイムラインに移動
+            isAnswerCorrect = false;
             goThroughWrongPath();
         }
     }
@@ -242,9 +336,6 @@ public class Timeline : MonoBehaviour
     {
         GetComponent<PlayableDirector>().Pause();
         timeline_gameOver.GetComponent<TrolleyMoveController>().enabled = true;
-        //GetComponent<TrolleyMoveController>().enabled = false;
-        //timeline_gameOver.GetComponent<TrolleyMoveController>().enabled = true;
-        //timeline_gameOver.GetComponent<PlayableDirector>().Play();
     }
 
 

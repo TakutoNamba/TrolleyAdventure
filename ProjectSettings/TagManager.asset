@@ -12,8 +12,8 @@ TagManager:
   - Water
   - UI
   - PostProcessing
-  - 
-  - 
+  - Canvas_main
+  - Canvas_return
   - 
   - 
   - 
@@ -40,4 +40,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Canvas_main
+    uniqueID: 1547490737
+    locked: 0
+  - name: Canvas_return
+    uniqueID: 4292891677
     locked: 0
