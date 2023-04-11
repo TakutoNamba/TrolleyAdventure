@@ -5,14 +5,18 @@ using PathCreation;
 
 public class TrolleyMoveController : MonoBehaviour
 {
-    [SerializeField]
-    PathCreator pathCreator;
+    public PathCreator pathCreator;
+    public PathCreator[] otherPathCreators;
 
     [SerializeField]
     GameObject trolley;
 
-    [SerializeField]
-    GameObject trolleyObject;
+
+    public GameObject trolleyObject;
+    [SerializeField] GameObject wheel_front;
+    [SerializeField] GameObject wheel_back;
+
+
 
 
     public float speed;
@@ -38,6 +42,10 @@ public class TrolleyMoveController : MonoBehaviour
         {
             throwTrolley();
         }
+        else
+        {
+            rotateWheel();
+        }
 
         prevPos = trolley.transform.position;
 
@@ -49,5 +57,11 @@ public class TrolleyMoveController : MonoBehaviour
         Rigidbody rb = trolleyObject.GetComponent<Rigidbody>();
         rb.useGravity = true;
         rb.AddForce(dir * pushScale, ForceMode.Impulse);
+    }
+
+    private void rotateWheel()
+    {
+        wheel_front.transform.Rotate(moveDistance, 0, 0);
+        wheel_back.transform.Rotate(moveDistance, 0, 0);
     }
 }

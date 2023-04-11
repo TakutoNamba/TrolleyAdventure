@@ -46,6 +46,10 @@ public class Timeline : MonoBehaviour
     public GameObject coverImage;
     private float coverImageAlpha;
 
+    private int questionCount = 1;
+
+
+
 
 
 
@@ -142,10 +146,49 @@ public class Timeline : MonoBehaviour
 
 
         //Let a question sentence and an aswer go up
-        QuestionPanel.transform.DOLocalMove(new Vector3(0, 800, 0), .2f)
+        QuestionPanel.transform.DOLocalMove(new Vector3(0, 700, 0), .2f)
             .SetEase(Ease.OutQuad)
             .SetRelative()
             .SetDelay(2f);
+
+
+        //Back to the normal position
+
+        Answers[answerSide].transform.DOLocalMove(new Vector3(Answers[answerSide].transform.localPosition.x, 0, 0), 0.2f)
+            .SetEase(Ease.OutQuad)
+            .SetRelative()
+            .SetDelay(3f);
+
+        Answer_texts[answerSide].transform.DOLocalMove(new Vector3(Answer_texts[answerSide].transform.localPosition.x, 0, 0), 0.2f)
+            .SetEase(Ease.OutQuad)
+            .SetRelative()
+            .SetDelay(3f);
+
+        Answers[answerSide].transform.DOScale(new Vector3(.01f, .01f, 1), 0.2f)
+            .SetEase(Ease.OutQuad)
+            .SetDelay(3f);
+
+        Answer_texts[answerSide].transform.DOScale(new Vector3(.01f, .01f, 1), 0.2f)
+            .SetEase(Ease.OutQuad)
+            .SetDelay(3f);
+
+        Answers[1 - answerSide].transform.DOScale(new Vector3(.01f, .01f, 1), 0.2f)
+            .SetEase(Ease.OutQuad)
+            .SetDelay(3f);
+
+        Answer_texts[1 - answerSide].transform.DOScale(new Vector3(.01f, .01f, 1), 0.2f)
+            .SetEase(Ease.OutQuad)
+            .SetDelay(3f);
+
+        DOTween.To
+            (
+            () => CountdownText.GetComponent<TextMeshProUGUI>().alpha,
+            (x) => CountdownText.GetComponent<TextMeshProUGUI>().alpha = x,
+            1,
+            .5f
+            ).SetDelay(3f);
+
+
 
 
 
@@ -225,7 +268,13 @@ public class Timeline : MonoBehaviour
             CorrectAnswer.GetComponent<Animator>().SetTrigger("ShowCircleTrigger");
 
         }
-        else
+
+
+    }
+
+    public void showWrongAnswer()
+    {
+        if (!isAnswerCorrect)
         {
             FalseAnswer.GetComponent<Animator>().SetTrigger("ShowFalseTrigger");
         }
@@ -245,6 +294,28 @@ public class Timeline : MonoBehaviour
                 );
         }
 
+    }
+
+    public void resetValue()
+    {
+        if(playerAnswer == correctAnswer)
+        {
+            CorrectAnswer.GetComponent<Animator>().Play("Idle");
+        }
+        else
+        {
+            FalseAnswer.GetComponent<Animator>().ResetTrigger("ShowFalseTrigger");
+        }
+        
+        CountdownText.SetActive(false);
+
+    }
+
+    public void updateQuestionCount()
+    {
+        questionCount += 1;
+        Debug.Log(questionCount);
+        timeline_gameOver.GetComponent<TrolleyMoveController>().pathCreator = timeline_gameOver.GetComponent<TrolleyMoveController>().otherPathCreators[questionCount];
     }
 
     public void displayContinueOptions()
@@ -280,6 +351,7 @@ public class Timeline : MonoBehaviour
                 1,
                 .5f
             ).SetDelay(2.0f);
+
             DOTween.To
             (
                 () => EndButton.transform.Find("Text").GetComponent<TextMeshProUGUI>().alpha,
@@ -287,6 +359,7 @@ public class Timeline : MonoBehaviour
                 1,
                 .5f
             ).SetDelay(2.0f);
+
             RetryButton.GetComponent<Image>().DOFade(1, .5f).SetDelay(2.0f);
             EndButton.GetComponent<Image>().DOFade(1, .5f).SetDelay(2.0f);
         }
@@ -305,17 +378,6 @@ public class Timeline : MonoBehaviour
     {
 
     }
-
-    //public void OnGUI()
-    //{
-    //    // カメラのサイズで画面全体に描画.
-    //    coverImage = new Texture2D(1, 1, TextureFormat.ARGB32, false);
-    //    // 黒のアルファ0.5で薄暗い感じにする.
-    //    coverImage.SetPixel(0, 0, new Color(0, 0, 0, coverImageAlpha));
-    //    // これをしないと色が適用されない.
-    //    coverImage.Apply();
-    //    GUI.DrawTexture(Camera.main.pixelRect, coverImage);
-    //}
 
     public void changePath()
     {
@@ -367,6 +429,7 @@ public class Timeline : MonoBehaviour
         }
 
         isCounting = false;
+        timeRemaining = 10;
     }
 
     private void DetectPlayersAnswer()
@@ -382,6 +445,8 @@ public class Timeline : MonoBehaviour
         //float tiltAngle = Mathf.Clamp(baseAngle, -30, 30);
         //float sizeScale = (tiltAngle / 60) + 1;
 
+        //float trolleyAngle = tiltAngle / 5;
+
 
 
         //float leftImageSize = baseImageSize * sizeScale;
@@ -389,6 +454,8 @@ public class Timeline : MonoBehaviour
 
         //Answer_Left.transform.localScale = new Vector3(leftImageSize, leftImageSize, 1);
         //Answer_Right.transform.localScale = new Vector3(rightImageSize, rightImageSize, 1);
+
+        //GetComponent<TrolleyMoveController>().trolleyObject.transform.rotation = new Vector3(0, 0, trolleyAngle);
 
 
         //PC テスト用スクリプト

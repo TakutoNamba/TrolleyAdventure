@@ -30,7 +30,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _Alpha: 0.25
-    - _CircleSize: -0.2
+    - _CircleSize: -0.1
     - _CircleThickness: 0.1
     - _InnerCircleSize: 0.45
     - _OuterCircleSize: 0.53
