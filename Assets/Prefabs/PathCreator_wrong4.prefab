@@ -22,27 +22,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3930378063479842166, guid: acc06a5b722e531449ad0c554f589ada, type: 3}
       propertyPath: editorData._bezierPath.points.Array.data[31].x
-      value: 71.62819
+      value: 68.003426
       objectReference: {fileID: 0}
     - target: {fileID: 3930378063479842166, guid: acc06a5b722e531449ad0c554f589ada, type: 3}
       propertyPath: editorData._bezierPath.points.Array.data[31].z
-      value: 122.12006
+      value: 114.26596
       objectReference: {fileID: 0}
     - target: {fileID: 3930378063479842166, guid: acc06a5b722e531449ad0c554f589ada, type: 3}
       propertyPath: editorData._bezierPath.points.Array.data[32].x
-      value: 91.80059
+      value: 77.1757
       objectReference: {fileID: 0}
     - target: {fileID: 3930378063479842166, guid: acc06a5b722e531449ad0c554f589ada, type: 3}
       propertyPath: editorData._bezierPath.points.Array.data[32].z
-      value: 112.89343
+      value: 109.801926
       objectReference: {fileID: 0}
     - target: {fileID: 3930378063479842166, guid: acc06a5b722e531449ad0c554f589ada, type: 3}
       propertyPath: editorData._bezierPath.points.Array.data[33].x
-      value: 111.97299
+      value: 85.656166
       objectReference: {fileID: 0}
     - target: {fileID: 3930378063479842166, guid: acc06a5b722e531449ad0c554f589ada, type: 3}
       propertyPath: editorData._bezierPath.points.Array.data[33].z
-      value: 103.666794
+      value: 114.094154
       objectReference: {fileID: 0}
     - target: {fileID: 3930378063479842166, guid: acc06a5b722e531449ad0c554f589ada, type: 3}
       propertyPath: editorData._bezierPath.perAnchorNormalsAngle.Array.size
@@ -50,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3930378063479842167, guid: acc06a5b722e531449ad0c554f589ada, type: 3}
       propertyPath: m_RootOrder
-      value: 19
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 3930378063479842167, guid: acc06a5b722e531449ad0c554f589ada, type: 3}
       propertyPath: m_LocalPosition.x

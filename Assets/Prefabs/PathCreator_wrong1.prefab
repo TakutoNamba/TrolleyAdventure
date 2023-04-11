@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3930378063479842161, guid: acc06a5b722e531449ad0c554f589ada, type: 3}
       propertyPath: m_Name
-      value: PathCreator2 Variant
+      value: PathCreator_wrong1
       objectReference: {fileID: 0}
     - target: {fileID: 3930378063479842161, guid: acc06a5b722e531449ad0c554f589ada, type: 3}
       propertyPath: m_IsActive
@@ -18,23 +18,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3930378063479842166, guid: acc06a5b722e531449ad0c554f589ada, type: 3}
       propertyPath: editorData._bezierPath.points.Array.size
-      value: 16
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3930378063479842166, guid: acc06a5b722e531449ad0c554f589ada, type: 3}
+      propertyPath: editorData._bezierPath.points.Array.data[10].x
+      value: -5.6517906
+      objectReference: {fileID: 0}
+    - target: {fileID: 3930378063479842166, guid: acc06a5b722e531449ad0c554f589ada, type: 3}
+      propertyPath: editorData._bezierPath.points.Array.data[10].z
+      value: -17.25574
       objectReference: {fileID: 0}
     - target: {fileID: 3930378063479842166, guid: acc06a5b722e531449ad0c554f589ada, type: 3}
       propertyPath: editorData._bezierPath.points.Array.data[11].x
-      value: 3.3463502
+      value: -4.290363
       objectReference: {fileID: 0}
     - target: {fileID: 3930378063479842166, guid: acc06a5b722e531449ad0c554f589ada, type: 3}
       propertyPath: editorData._bezierPath.points.Array.data[11].z
-      value: -36.59675
+      value: -24.413784
       objectReference: {fileID: 0}
     - target: {fileID: 3930378063479842166, guid: acc06a5b722e531449ad0c554f589ada, type: 3}
       propertyPath: editorData._bezierPath.points.Array.data[12].x
-      value: 5.107953
+      value: -2.928935
       objectReference: {fileID: 0}
     - target: {fileID: 3930378063479842166, guid: acc06a5b722e531449ad0c554f589ada, type: 3}
       propertyPath: editorData._bezierPath.points.Array.data[12].z
-      value: -42.078194
+      value: -31.57183
       objectReference: {fileID: 0}
     - target: {fileID: 3930378063479842166, guid: acc06a5b722e531449ad0c554f589ada, type: 3}
       propertyPath: editorData._bezierPath.points.Array.data[13].x
@@ -62,11 +70,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3930378063479842166, guid: acc06a5b722e531449ad0c554f589ada, type: 3}
       propertyPath: editorData._bezierPath.perAnchorNormalsAngle.Array.size
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3930378063479842167, guid: acc06a5b722e531449ad0c554f589ada, type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 3930378063479842167, guid: acc06a5b722e531449ad0c554f589ada, type: 3}
       propertyPath: m_LocalPosition.x

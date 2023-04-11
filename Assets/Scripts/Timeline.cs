@@ -152,6 +152,14 @@ public class Timeline : MonoBehaviour
             .SetDelay(2f);
 
 
+        GetComponent<TrolleyMoveController>().trolleyObject.transform.DOLocalRotate(
+            new Vector3(0, 0, 0),
+            1f
+            ).SetDelay(3f);
+
+
+
+
         //Back to the normal position
 
         Answers[answerSide].transform.DOLocalMove(new Vector3(Answers[answerSide].transform.localPosition.x, 0, 0), 0.2f)
@@ -470,6 +478,11 @@ public class Timeline : MonoBehaviour
             Answer_Right.transform.DOScale(new Vector3(SmallerSize, SmallerSize, 1), 0.2f)
                 .SetEase(Ease.OutQuad);
 
+            GetComponent<TrolleyMoveController>().trolleyObject.transform.DOLocalRotate(
+                new Vector3(0, 0, 6),
+                0.2f
+                );
+
         }
         else if (Input.GetKeyDown(KeyCode.S) & Answer_Right.transform.localScale.x == Answer_Left.transform.localScale.x)
         {
@@ -478,6 +491,12 @@ public class Timeline : MonoBehaviour
 
             Answer_Right.transform.DOScale(new Vector3(BiggerSize, BiggerSize, 1), 0.2f)
                 .SetEase(Ease.OutQuad);
+
+            GetComponent<TrolleyMoveController>().trolleyObject.transform.DOLocalRotate(
+                new Vector3(0, 0, -6),
+                0.2f
+                );
+
         }
         else if (Input.GetKeyDown(KeyCode.A) && Answer_Left.transform.localScale.x < Answer_Right.transform.localScale.x)
         {
@@ -486,6 +505,12 @@ public class Timeline : MonoBehaviour
 
             Answer_Right.transform.DOScale(new Vector3(SmallerSize, SmallerSize, 1), 0.4f)
                 .SetEase(Ease.OutQuad);
+
+            GetComponent<TrolleyMoveController>().trolleyObject.transform.DOLocalRotate(
+                new Vector3(0, 0, 12),
+                0.2f
+                );
+
         }
         else if (Input.GetKeyDown(KeyCode.S) && Answer_Left.transform.localScale.x > Answer_Right.transform.localScale.x)
         {
@@ -494,6 +519,12 @@ public class Timeline : MonoBehaviour
 
             Answer_Right.transform.DOScale(new Vector3(BiggerSize, BiggerSize, 1), 0.4f)
                 .SetEase(Ease.OutQuad);
+
+            GetComponent<TrolleyMoveController>().trolleyObject.transform.DOLocalRotate(
+                new Vector3(0, 0, -12),
+                0.2f
+                );
+
         }
     }
 

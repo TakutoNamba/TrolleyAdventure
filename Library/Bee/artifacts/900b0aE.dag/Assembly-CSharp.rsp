@@ -377,6 +377,7 @@
 -r:"Library/Bee/artifacts/900b0aE.dag/UnityEditor.CacheServer.ref.dll"
 -r:"Library/Bee/artifacts/900b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/900b0aE.dag/UnityEngine.UI.ref.dll"
+"Assets/8K Skybox Pack Free/Example Scenes/Script/RotateCamera.cs"
 "Assets/CSVSerializer/CSVSerializer.cs"
 "Assets/CSVSerializer/Demo/ConstData.cs"
 "Assets/CSVSerializer/Demo/CSVImportExample.cs"
