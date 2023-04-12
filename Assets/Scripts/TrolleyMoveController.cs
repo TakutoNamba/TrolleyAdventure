@@ -56,6 +56,7 @@ public class TrolleyMoveController : MonoBehaviour
         Vector3 dir = trolley.transform.position - prevPos;
         Rigidbody rb = trolleyObject.GetComponent<Rigidbody>();
         rb.useGravity = true;
+        rb.isKinematic = false;
         rb.AddForce(dir * pushScale, ForceMode.Impulse);
     }
 

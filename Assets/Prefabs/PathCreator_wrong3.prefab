@@ -26,19 +26,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3930378063479842166, guid: acc06a5b722e531449ad0c554f589ada, type: 3}
       propertyPath: editorData._bezierPath.points.Array.data[23].x
-      value: 24.001884
+      value: 20.97438
       objectReference: {fileID: 0}
     - target: {fileID: 3930378063479842166, guid: acc06a5b722e531449ad0c554f589ada, type: 3}
       propertyPath: editorData._bezierPath.points.Array.data[23].z
-      value: 117.16939
+      value: 114.43714
       objectReference: {fileID: 0}
     - target: {fileID: 3930378063479842166, guid: acc06a5b722e531449ad0c554f589ada, type: 3}
       propertyPath: editorData._bezierPath.points.Array.data[24].x
-      value: 32.853874
+      value: 29.82637
       objectReference: {fileID: 0}
     - target: {fileID: 3930378063479842166, guid: acc06a5b722e531449ad0c554f589ada, type: 3}
       propertyPath: editorData._bezierPath.points.Array.data[24].z
-      value: 125.25297
+      value: 122.52072
       objectReference: {fileID: 0}
     - target: {fileID: 3930378063479842166, guid: acc06a5b722e531449ad0c554f589ada, type: 3}
       propertyPath: editorData._bezierPath.points.Array.data[25].x

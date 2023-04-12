@@ -720,6 +720,9 @@
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="CopoCopo.TextMeshProAnimator.Runtime">
+      <HintPath>Library\ScriptAssemblies\CopoCopo.TextMeshProAnimator.Runtime.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor.CacheServer">
       <HintPath>Library\ScriptAssemblies\UnityEditor.CacheServer.dll</HintPath>
     </Reference>

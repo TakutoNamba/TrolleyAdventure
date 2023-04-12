@@ -12,6 +12,8 @@ using UnityEngine.SceneManagement;
 
 public class Timeline : MonoBehaviour
 {
+    public GameObject trolleyObject;
+    public GameObject startCountdownText;
     public GameObject QuestionPanel;
     public GameObject Answer_Left;
     public GameObject Answer_Right;
@@ -22,6 +24,7 @@ public class Timeline : MonoBehaviour
     public GameObject CorrectAnswer;
     public GameObject FalseAnswer;
     public GameObject GameoverText;
+    public GameObject GameclearText;
 
     public GameObject RetryButton;
     public GameObject EndButton;
@@ -30,6 +33,8 @@ public class Timeline : MonoBehaviour
     private float baseImageSize;
 
     public float timeRemaining = 5; // the amount of time to countdown from
+    private float startTimeRemaining;
+
     public delegate void CountEventHandler(int count); // define a delegate to handle count events
     public event CountEventHandler OnCount; // define an event to handle count events
     public event CountEventHandler OnCountZero; // define an event to handle the end of the countdown
@@ -57,11 +62,13 @@ public class Timeline : MonoBehaviour
     {
         Input.gyro.enabled = true;
         csvProcessing = databaseManager.GetComponent<CSVProcessing>();
+
+        startTimeRemaining = timeRemaining;
     }
 
     void Start()
     {
-
+        
     }
 
     void Update()
@@ -71,6 +78,27 @@ public class Timeline : MonoBehaviour
             DetectPlayersAnswer();
         }
 
+    }
+
+    public void startGame()
+    {
+        startGameCorutine();
+    }
+
+    private IEnumerator startGameCorutine()
+    {
+        trolleyObject.transform.DOMove(new Vector3(0, -1, 0), 0.5f)
+            .SetEase(Ease.InBounce)
+            .SetRelative();
+
+
+        yield return new WaitForSeconds(1.5f);
+
+        CountdownCoroutine(3f);
+
+        yield return new WaitForSeconds(3f);
+
+        GetComponent<PlayableDirector>().Play();
     }
 
     public void showQuestionPanel()
@@ -106,7 +134,7 @@ public class Timeline : MonoBehaviour
         if (!isCounting)
         {
             isCounting = true;
-            StartCoroutine(CountdownCoroutine());
+            StartCoroutine(CountdownCoroutine(timeRemaining));
         }
     }
 
@@ -408,25 +436,41 @@ public class Timeline : MonoBehaviour
         timeline_gameOver.GetComponent<TrolleyMoveController>().enabled = true;
     }
 
+    public void gameClear()
+    {
+        DOTween.To
+            (
+            () => GameclearText.GetComponent<TextMeshProUGUI>().alpha,
+            (x) => GameclearText.GetComponent<TextMeshProUGUI>().alpha = x,
+            1,
+            .2f
+            ); ;
+
+        GameclearText.GetComponent<TextMeshProSimpleAnimator>().enabled = true;
+        //GameclearText.GetComponent<TextMeshProGeometryAnimator>().enabled = true;
+
+        
+    }
 
 
-    private IEnumerator CountdownCoroutine()
+
+    private IEnumerator CountdownCoroutine(float settingTime)
     {
         CountdownText.SetActive(true);
-        while (timeRemaining > 0)
+        while (settingTime > 0)
         {
-            int minutes = Mathf.FloorToInt(timeRemaining / 60); 
-            int seconds = Mathf.FloorToInt(timeRemaining % 60); 
+            int minutes = Mathf.FloorToInt(settingTime / 60); 
+            int seconds = Mathf.FloorToInt(settingTime % 60); 
             CountdownText.GetComponent<TextMeshProUGUI>().text = string.Format("{00}",seconds); 
 
             if (OnCount != null) 
             {
-                OnCount(Mathf.FloorToInt(timeRemaining));
+                OnCount(Mathf.FloorToInt(settingTime));
             }
 
             yield return new WaitForSeconds(1); 
 
-            timeRemaining--; 
+            settingTime--; 
         }
 
         CountdownText.GetComponent<TextMeshProUGUI>().text = string.Format("{00}", 0); 
@@ -437,7 +481,7 @@ public class Timeline : MonoBehaviour
         }
 
         isCounting = false;
-        timeRemaining = 10;
+        //timeRemaining = startTimeRemaining;
     }
 
     private void DetectPlayersAnswer()

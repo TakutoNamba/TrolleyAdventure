@@ -5,6 +5,8 @@ using UnityEngine.UI;
 using DG.Tweening;
 using TMPro;
 using UnityEngine.Playables;
+using UnityEngine.SceneManagement;
+
 
 
 public class ButtonScript : MonoBehaviour
@@ -33,5 +35,16 @@ public class ButtonScript : MonoBehaviour
 
         _timeline.Play();
         _timeline_gameOver.Play();
+    }
+
+    public void startGame()
+    {
+        SceneManager.LoadScene("Main");
+    }
+
+    public void backToMenu()
+
+    {
+        SceneManager.LoadScene("StartScene");
     }
 }
