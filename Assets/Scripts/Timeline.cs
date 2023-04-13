@@ -28,6 +28,7 @@ public class Timeline : MonoBehaviour
 
     public GameObject RetryButton;
     public GameObject EndButton;
+    public GameObject GoalObject;
 
 
     private float baseImageSize;
@@ -68,7 +69,7 @@ public class Timeline : MonoBehaviour
 
     void Start()
     {
-        
+        startGame();
     }
 
     void Update()
@@ -82,23 +83,28 @@ public class Timeline : MonoBehaviour
 
     public void startGame()
     {
-        startGameCorutine();
+        StartCoroutine(startGameCorutine());
     }
 
-    private IEnumerator startGameCorutine()
+    public IEnumerator startGameCorutine()
     {
         trolleyObject.transform.DOMove(new Vector3(0, -1, 0), 0.5f)
-            .SetEase(Ease.InBounce)
+            .SetEase(Ease.InQuad)
             .SetRelative();
 
 
         yield return new WaitForSeconds(1.5f);
 
-        CountdownCoroutine(3f);
+        StartCoroutine(CountdownCoroutine(startCountdownText, 3f));
 
         yield return new WaitForSeconds(3f);
 
+        GetComponent<TrolleyMoveController>().enabled = true;
+        //
+        //timeline_gameOver.GetComponent<TrolleyMoveController>().enabled = true;
+        //trolleyObject.transform.parent.gameObject.GetComponent<PositionModifier>().enabled = true;
         GetComponent<PlayableDirector>().Play();
+        timeline_gameOver.GetComponent<PlayableDirector>().Play();
     }
 
     public void showQuestionPanel()
@@ -134,19 +140,13 @@ public class Timeline : MonoBehaviour
         if (!isCounting)
         {
             isCounting = true;
-            StartCoroutine(CountdownCoroutine(timeRemaining));
+            StartCoroutine(CountdownCoroutine(CountdownText, timeRemaining));
         }
     }
 
     public void confirmPlayersAnswer()
     {
-        DOTween.To
-            (
-            () => CountdownText.GetComponent<TextMeshProUGUI>().alpha,
-            (x) => CountdownText.GetComponent<TextMeshProUGUI>().alpha = x,
-            0,
-            .5f
-            ); ;
+
 
         List<GameObject> Answers = new List<GameObject> { Answer_Left, Answer_Right };
         List<GameObject> Answer_texts = new List<GameObject> { Answer_Left_Name, Answer_Right_Name };
@@ -321,6 +321,8 @@ public class Timeline : MonoBehaviour
     {
         if(!isAnswerCorrect)
         {
+            timeline_gameOver.GetComponent<TrolleyMoveController>().enabled = false;
+
             DOTween.To
                 (
                 () => GameoverText.GetComponent<TextMeshProUGUI>().alpha,
@@ -356,6 +358,9 @@ public class Timeline : MonoBehaviour
 
     public void displayContinueOptions()
     {
+
+        coverImage.GetComponent<Image>().DOFade(0.8f, 0.5f);
+
         DOTween.To
         (
             () => RetryButton.transform.Find("Text").GetComponent<TextMeshProUGUI>().alpha,
@@ -407,12 +412,14 @@ public class Timeline : MonoBehaviour
     {
         Scene loadScene = SceneManager.GetActiveScene();
         // åªç›ÇÃÉVÅ[ÉìÇçƒì«Ç›çûÇ›Ç∑ÇÈ
-        SceneManager.LoadScene(loadScene.name);
+        SceneManager.LoadScene("Main");
     }
 
     public void BackToMenu()
     {
-
+        //GetComponent<TrolleyMoveController>().enabled = true;
+        //timeline_gameOver.GetComponent<TrolleyMoveController>().enabled = true;
+        SceneManager.LoadScene("StartScene");
     }
 
     public void changePath()
@@ -433,6 +440,7 @@ public class Timeline : MonoBehaviour
     private void goThroughWrongPath()
     {
         GetComponent<PlayableDirector>().Pause();
+        GetComponent<TrolleyMoveController>().enabled = false;
         timeline_gameOver.GetComponent<TrolleyMoveController>().enabled = true;
     }
 
@@ -452,16 +460,23 @@ public class Timeline : MonoBehaviour
         
     }
 
-
-
-    private IEnumerator CountdownCoroutine(float settingTime)
+    public void hideTreasures()
     {
-        CountdownText.SetActive(true);
+        GoalObject.transform.DOMove(new Vector3(0, -2, 0), 1f)
+            .SetRelative()
+            .SetEase(Ease.InQuad);
+    }
+
+
+
+    private IEnumerator CountdownCoroutine(GameObject countdownText, float settingTime)
+    {
+        countdownText.SetActive(true);
         while (settingTime > 0)
         {
             int minutes = Mathf.FloorToInt(settingTime / 60); 
             int seconds = Mathf.FloorToInt(settingTime % 60); 
-            CountdownText.GetComponent<TextMeshProUGUI>().text = string.Format("{00}",seconds); 
+            countdownText.GetComponent<TextMeshProUGUI>().text = string.Format("{00}",seconds); 
 
             if (OnCount != null) 
             {
@@ -473,7 +488,7 @@ public class Timeline : MonoBehaviour
             settingTime--; 
         }
 
-        CountdownText.GetComponent<TextMeshProUGUI>().text = string.Format("{00}", 0); 
+        countdownText.GetComponent<TextMeshProUGUI>().text = string.Format("{00}", 0); 
 
         if (OnCountZero != null) 
         {
@@ -482,6 +497,14 @@ public class Timeline : MonoBehaviour
 
         isCounting = false;
         //timeRemaining = startTimeRemaining;
+
+        DOTween.To
+            (
+            () => countdownText.GetComponent<TextMeshProUGUI>().alpha,
+            (x) => countdownText.GetComponent<TextMeshProUGUI>().alpha = x,
+            0,
+            .5f
+            ); ;
     }
 
     private void DetectPlayersAnswer()

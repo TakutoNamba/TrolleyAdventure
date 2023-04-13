@@ -1,5 +1,3 @@
-Library\Bee\artifacts\mvdfrm\Unity.Addressables.Editor.ref.dll_76D83FFC3622FBB1.mvfrm
-Library\Bee\artifacts\mvdfrm\Unity.Addressables.ref.dll_A640A42E249BCC00.mvfrm
 Library\Bee\artifacts\mvdfrm\Unity.EditorCoroutines.Editor.ref.dll_44B23014301201CE.mvfrm
 Library\Bee\artifacts\mvdfrm\Unity.Performance.Profile-Analyzer.Editor.ref.dll_6D5A44DF5A5FB85E.mvfrm
 Library\Bee\artifacts\mvdfrm\Unity.PlasticSCM.Editor.ref.dll_61765147EED78A29.mvfrm
@@ -9,10 +7,7 @@ Library\Bee\artifacts\mvdfrm\Unity.ProBuilder.AddOns.Editor.ref.dll_37FD6B15BEA3
 Library\Bee\artifacts\mvdfrm\Unity.ProBuilder.AssetIdRemapUtility.ref.dll_7A65DEA31EC4E8D9.mvfrm
 Library\Bee\artifacts\mvdfrm\Unity.ProBuilder.Editor.ref.dll_1FAA878A09187C48.mvfrm
 Library\Bee\artifacts\mvdfrm\Unity.ProBuilder.ref.dll_9886587759B96DF9.mvfrm
-Library\Bee\artifacts\mvdfrm\Unity.ResourceManager.ref.dll_2588EBBA6305243A.mvfrm
 Library\Bee\artifacts\mvdfrm\Unity.Rider.Editor.ref.dll_58BAED9DE5C1964C.mvfrm
-Library\Bee\artifacts\mvdfrm\Unity.ScriptableBuildPipeline.Editor.ref.dll_241ED32D4A5BDA0B.mvfrm
-Library\Bee\artifacts\mvdfrm\Unity.ScriptableBuildPipeline.ref.dll_378D21DF14E25006.mvfrm
 Library\Bee\artifacts\mvdfrm\Unity.Services.Core.Analytics.ref.dll_FD66879B60C7F5B2.mvfrm
 Library\Bee\artifacts\mvdfrm\Unity.Services.Core.Environments.ref.dll_A46F9ABD0EDC066A.mvfrm
 Library\Bee\artifacts\mvdfrm\Unity.Services.Core.ref.dll_7E81C44967154A2A.mvfrm
@@ -33,7 +28,6 @@ Library\Bee\artifacts\mvdfrm\Unity.VisualScripting.Shared.Editor.ref.dll_FC9237B
 Library\Bee\artifacts\mvdfrm\Unity.VisualScripting.State.Editor.ref.dll_C13AB9B8D4557B0C.mvfrm
 Library\Bee\artifacts\mvdfrm\Unity.VisualScripting.State.ref.dll_695E51A145AA52F5.mvfrm
 Library\Bee\artifacts\mvdfrm\Unity.VisualStudio.Editor.ref.dll_CFFC789CDF177EE0.mvfrm
-Library\Bee\artifacts\mvdfrm\UnityEditor.CacheServer.ref.dll_8F70AD5F9E7A18CD.mvfrm
 Library\Bee\artifacts\mvdfrm\UnityEditor.TestRunner.ref.dll_B78A5F2FADA65D90.mvfrm
 Library\Bee\artifacts\mvdfrm\UnityEditor.UI.ref.dll_6A0DDEC5ED23C452.mvfrm
 Library\Bee\artifacts\mvdfrm\UnityEngine.TestRunner.ref.dll_83A8A9DDD969BB7B.mvfrm

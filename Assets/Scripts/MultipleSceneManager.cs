@@ -28,7 +28,6 @@ public class MultipleSceneManager : MonoBehaviour
         
         if(loadedScene.name == "Main")
         {
-            _timeline.GetComponent<Timeline>().startGame();
             Debug.Log(loadedScene.name);
         }
     }

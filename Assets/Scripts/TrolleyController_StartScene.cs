@@ -39,6 +39,8 @@ public class TrolleyController_StartScene : MonoBehaviour
             moveDistance += speed * Time.deltaTime;
             trolley.transform.position = pathCreator.path.GetPointAtDistance(moveDistance, EndOfPathInstruction.Loop);
             trolley.transform.rotation = pathCreator.path.GetRotationAtDistance(moveDistance, EndOfPathInstruction.Loop);
+            trolley.transform.rotation *= Quaternion.Euler(0, 0, 90);
+
 
             rotateWheel();
         }

@@ -58,34 +58,30 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Gyro_Test.cs" />
     <Compile Include="Assets\Scripts\TrolleyController_StartScene.cs" />
-    <Compile Include="Assets\8K Skybox Pack Free\Example Scenes\Script\RotateCamera.cs" />
-    <Compile Include="Assets\CSVSerializer\Demo\Scene\UIRankingSlot.cs" />
-    <Compile Include="Assets\CSVSerializer\Demo\LanguageStringData.cs" />
-    <Compile Include="Assets\CSVSerializer\Demo\Scene\UIRankingWinSlot.cs" />
-    <Compile Include="Assets\CSVSerializer\CSVSerializer.cs" />
-    <Compile Include="Assets\CSVSerializer\Demo\ConstData.cs" />
+    <Compile Include="Assets\CSVLoader\CSVSerializer\Demo\Scene\UIRankingSlot.cs" />
+    <Compile Include="Assets\CSVLoader\CSVSerializer\Demo\LanguageStringData.cs" />
+    <Compile Include="Assets\CSVLoader\CSVSerializer\Demo\Scene\UIRankingWinSlot.cs" />
+    <Compile Include="Assets\CSVLoader\CSVSerializer\CSVSerializer.cs" />
+    <Compile Include="Assets\CSVLoader\CSVSerializer\Demo\ConstData.cs" />
     <Compile Include="Assets\Scripts\ButtonScript.cs" />
     <Compile Include="Assets\Scripts\Timeline.cs" />
-    <Compile Include="Assets\CSVSerializer\Demo\Scene\UIRanking.cs" />
-    <Compile Include="Assets\CSVSerializer\Demo\RankingData.cs" />
-    <Compile Include="Assets\CSVSerializer\Demo\CSVImportExampleFromWeb.cs" />
-    <Compile Include="Assets\Samples\Addressables\1.20.5\Addressables Utility\AddressablesUtility.cs" />
+    <Compile Include="Assets\Scripts\MultipleSceneManager.cs" />
+    <Compile Include="Assets\CSVLoader\CSVSerializer\Demo\Scene\UIRanking.cs" />
+    <Compile Include="Assets\CSVLoader\CSVSerializer\Demo\RankingData.cs" />
+    <Compile Include="Assets\CSVLoader\CSVSerializer\Demo\CSVImportExampleFromWeb.cs" />
     <Compile Include="Assets\Scripts\QuizQuestionsData.cs" />
     <Compile Include="Assets\Scripts\AppSetup.cs" />
     <Compile Include="Assets\Scripts\PositionModifier.cs" />
-    <Compile Include="Assets\UI pack\Scripts\FillValueNumber.cs" />
     <Compile Include="Assets\Scripts\QuizChoicesData.cs" />
     <Compile Include="Assets\Scripts\RootController.cs" />
-    <Compile Include="Assets\CSVSerializer\Demo\CSVImportExample.cs" />
+    <Compile Include="Assets\CSVLoader\CSVSerializer\Demo\CSVImportExample.cs" />
     <Compile Include="Assets\Scripts\CSVProcessing.cs" />
     <Compile Include="Assets\Scripts\TrolleyMoveController.cs" />
-    <Compile Include="Assets\Scripts\MultipleSceneManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
-    <None Include="Assets\8K Skybox Pack Free\ReadMe.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
     <None Include="Assets\Shaders\Cross.shader" />
@@ -99,7 +95,6 @@
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
-    <None Include="Assets\UI pack\Documentation.txt" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />

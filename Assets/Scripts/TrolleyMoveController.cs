@@ -21,7 +21,9 @@ public class TrolleyMoveController : MonoBehaviour
 
     public float speed;
     public float moveDistance;
+    public float stopPos;
     public float pushScale;
+
 
     Vector3 endPos;
     Vector3 prevPos;
@@ -35,8 +37,15 @@ public class TrolleyMoveController : MonoBehaviour
     {
         //‚±‚±‚ðƒ^ƒCƒ€ƒ‰ƒCƒ“‚Å“®‚©‚·
         //moveDistance += speed * Time.deltaTime;
+
+        if(stopPos < moveDistance)
+        {
+            moveDistance = stopPos;
+        }
+
         trolley.transform.position = pathCreator.path.GetPointAtDistance(moveDistance, EndOfPathInstruction.Stop);
         trolley.transform.rotation = pathCreator.path.GetRotationAtDistance(moveDistance, EndOfPathInstruction.Stop);
+        trolley.transform.rotation *= Quaternion.Euler(0, 0, 90);
 
         if (trolley.transform.position == endPos)
         {
