@@ -77,6 +77,7 @@
     <Compile Include="Assets\CSVLoader\CSVSerializer\Demo\CSVImportExample.cs" />
     <Compile Include="Assets\Scripts\CSVProcessing.cs" />
     <Compile Include="Assets\Scripts\TrolleyMoveController.cs" />
+    <Compile Include="Assets\Scripts\SplineController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
