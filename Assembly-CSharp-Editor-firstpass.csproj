@@ -369,6 +369,21 @@
     <Reference Include="unityplastic">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@1.17.1\Lib\Editor\PlasticSCM\unityplastic.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Burst.Unsafe">
+      <HintPath>Library\PackageCache\com.unity.burst@1.7.3\Unity.Burst.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst.Cecil.Mdb">
+      <HintPath>Library\PackageCache\com.unity.burst@1.7.3\Unity.Burst.CodeGen\Unity.Burst.Cecil.Mdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst.Cecil.Pdb">
+      <HintPath>Library\PackageCache\com.unity.burst@1.7.3\Unity.Burst.CodeGen\Unity.Burst.Cecil.Pdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst.Cecil">
+      <HintPath>Library\PackageCache\com.unity.burst@1.7.3\Unity.Burst.CodeGen\Unity.Burst.Cecil.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst.Cecil.Rocks">
+      <HintPath>Library\PackageCache\com.unity.burst@1.7.3\Unity.Burst.CodeGen\Unity.Burst.Cecil.Rocks.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>Library\PackageCache\com.unity.ext.nunit@1.0.6\net35\unity-custom\nunit.framework.dll</HintPath>
     </Reference>
@@ -863,6 +878,24 @@
     </Reference>
     <Reference Include="Unity.VisualScripting.State">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Splines">
+      <HintPath>Library\ScriptAssemblies\Unity.Splines.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Mathematics">
+      <HintPath>Library\ScriptAssemblies\Unity.Mathematics.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst">
+      <HintPath>Library\ScriptAssemblies\Unity.Burst.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Mathematics.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Splines.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Splines.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Burst.Editor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
