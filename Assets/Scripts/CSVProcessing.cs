@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class CSVProcessing : MonoBehaviour
 {
-
+    public int questionNum;
     public QuizQuestionsData[] questionsData;
     public QuizChoicesData[] choicesData;
 
     private List<int> questionOptions = new List<int>();
+
 
     void Awake()
     {
@@ -31,7 +32,10 @@ public class CSVProcessing : MonoBehaviour
 
     void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.Z))
+        {
+            Debug.Log(pickQuestionNum());
+        }
     }
 
     public string getQuestionDatas(int num)
@@ -59,10 +63,10 @@ public class CSVProcessing : MonoBehaviour
 
     public int pickQuestionNum()
     {
-        int index = Random.Range(0, questionOptions.Count);
-        int ransu = questionOptions[index];
-        questionOptions.RemoveAt(index);
-
+        int ind = Random.Range(0, questionOptions.Count);
+        int ransu = questionOptions[ind];
+        questionOptions.RemoveAt(ind);
+        //Debug.Log(questionOptions.Count + " " + ind + " " + ransu);
         return ransu;
     }
 

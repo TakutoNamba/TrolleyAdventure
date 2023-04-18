@@ -259,7 +259,7 @@ public class Timeline : MonoBehaviour
             // Right ‚É Žc‚Á‚½•û
             Answer_Right_Name.GetComponent<TextMeshProUGUI>().text = question_False_Option;
 
-            correctAnswer = 0;
+            correctAnswer = 1;
 
         }
         else
@@ -271,7 +271,7 @@ public class Timeline : MonoBehaviour
             Answer_Left_Name.GetComponent<TextMeshProUGUI>().text = question_False_Option;
             Answer_Right_Name.GetComponent<TextMeshProUGUI>().text = question_True_Option;
 
-            correctAnswer = 1;
+            correctAnswer = 0;
         }
 
     }
