@@ -411,6 +411,7 @@
 "Assets/Scripts/QuizQuestionsData.cs"
 "Assets/Scripts/RootController.cs"
 "Assets/Scripts/SplineController.cs"
+"Assets/Scripts/SplineController_StartScene.cs"
 "Assets/Scripts/Timeline.cs"
 "Assets/Scripts/TrolleyController_StartScene.cs"
 "Assets/Scripts/TrolleyMoveController.cs"

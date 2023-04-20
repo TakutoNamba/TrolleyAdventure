@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\SplineController.cs" />
     <Compile Include="Assets\Scripts\ButtonScript.cs" />
     <Compile Include="Assets\Scripts\Timeline.cs" />
+    <Compile Include="Assets\Scripts\SplineController_StartScene.cs" />
     <Compile Include="Assets\Scripts\MultipleSceneManager.cs" />
     <Compile Include="Assets\CSVLoader\CSVSerializer\Demo\Scene\UIRanking.cs" />
     <Compile Include="Assets\CSVLoader\CSVSerializer\Demo\RankingData.cs" />

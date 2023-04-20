@@ -62,7 +62,7 @@ public class TrolleyMoveController : MonoBehaviour
 
     private void throwTrolley()
     {
-        Vector3 dir = trolley.transform.position - prevPos;
+        Vector3 dir = ((trolley.transform.position - prevPos) *100).normalized;
         Rigidbody rb = trolleyObject.GetComponent<Rigidbody>();
         rb.useGravity = true;
         rb.isKinematic = false;

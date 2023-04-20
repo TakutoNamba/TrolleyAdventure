@@ -11,29 +11,9 @@ public class SplineController : MonoBehaviour
 {
     [Header("State monitor")]
     public bool isPlaying;
-    public float dist;
     public int questionNumber;
-
-    [Header("Other parameters")]
-    public float speed;
-    public float timeRemaining = 5; // the amount of time to countdown from
-
-
-    public Vector3 posModifier;
-    public string pathIndicator;
-    private Vector3 prevPos;
-
-    public delegate void CountEventHandler(int count); // define a delegate to handle count events
-    public event CountEventHandler OnCount; // define an event to handle count events
-    public event CountEventHandler OnCountZero; // define an event to handle the end of the countdown
-    private bool isCounting = false;
-    private bool isAnswerCorrect = true;
+    public float dist;
     [SerializeField] float state = 0;
-    private float baseImageSize;
-    private float baseNameSize;
-    private int correctAnswer;
-    private int playerAnswer;
-
     private enum GAME_STATE
     {
         RUNNING,
@@ -44,12 +24,37 @@ public class SplineController : MonoBehaviour
     }
     [SerializeField] GAME_STATE gameState;
 
+    [Header("Other parameters")]
+    public float speed;
+    public float timeRemaining = 5; // the amount of time to countdown from
+    public float pushScale;
+
+
+    public Vector3 posModifier;
+    public string pathIndicator;
+    private Vector3 prevPos;
+    private Vector3 fallPos;
+
+    public delegate void CountEventHandler(int count); // define a delegate to handle count events
+    public event CountEventHandler OnCount; // define an event to handle count events
+    public event CountEventHandler OnCountZero; // define an event to handle the end of the countdown
+    private bool isCounting = false;
+    private bool isAnswerCorrect = true;
+    private float baseImageSize;
+    private float baseNameSize;
+    private int correctAnswer;
+    private int playerAnswer;
+
+
+
 
     private CSVProcessing csvProcessing;
 
     public GameObject[] splines;
     public float[] triggers;
+    public GameObject player;
     public GameObject trolleyObject;
+    public GameObject mainCamera;
     private SplineContainer spline;
     public GameObject startCountdownText;
     public GameObject CountdownText;
@@ -96,6 +101,16 @@ public class SplineController : MonoBehaviour
         {
             moveTrolley(spline.GetComponent<SplineContainer>());
         }
+        else
+        {
+            //if(gameState == GAME_STATE.FALSE)
+            //{
+            //    trolleyObject.transform.rotation = Quaternion.Euler(fallPos.x, fallPos.y, fallPos.z);
+            //}
+        }
+
+        prevPos = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
+
 
 
         if (gameState == GAME_STATE.RUNNING)
@@ -117,7 +132,7 @@ public class SplineController : MonoBehaviour
                 state = triggers[1];
                 startCountdown();
             }
-            else if (getPercentage(spline, dist) > triggers[2] && state < triggers[2])
+            else if (getPercentage(spline, dist) >= triggers[2] && state < triggers[2])
             {
                 state = triggers[2];
                 confirmPlayersAnswer();
@@ -132,7 +147,7 @@ public class SplineController : MonoBehaviour
 
         if (gameState == GAME_STATE.RUN_TO_COR || gameState == GAME_STATE.RUN_TO_FAL)
         {
-            if (getPercentage(spline, dist) > 0.99)
+            if (getPercentage(spline, dist) >= 1)
             {
                 changePath();
             }
@@ -146,6 +161,14 @@ public class SplineController : MonoBehaviour
                 //正解表示する
                 showCorrect();
             }
+
+            if (getPercentage(spline, dist) >= 1 && state < 1)
+            {
+                state = 1;
+                resetValue();
+                changePath();
+                //正解表示する
+            }
         }
 
         if (gameState == GAME_STATE.FALSE)
@@ -153,34 +176,53 @@ public class SplineController : MonoBehaviour
             if (getPercentage(spline, dist) > 0.6 && state < 0.6)
             {
                 state = 0.6f;
-                //不正解表示する
-                showWrong();
+                ////不正解表示する
+                //showWrong();
 
             }
             else if (getPercentage(spline, dist) > 0.8 && state < 0.8)
             {
                 state = 0.8f;
+                ////不正解表示する
+                //showGameover();
+                //displayReturnOptions();
+            }
+            else if (getPercentage(spline, dist) >= 1 && state < 1)
+            {
+                state = 1.0f;
                 //不正解表示する
-                showGameover();
-                displayReturnOptions();
+                isPlaying = false;
+
+                StartCoroutine(runGameover());
+
             }
         }
+
 
     }
 
     public void moveTrolley(SplineContainer splineContainer)
     {
+        
         dist += Time.deltaTime * speed;
-        trolleyObject.transform.position = splineContainer.EvaluatePosition(getPercentage(splineContainer, dist));
-        trolleyObject.transform.position = new Vector3(trolleyObject.transform.position.x + posModifier.x, trolleyObject.transform.position.y + posModifier.y, trolleyObject.transform.position.z + posModifier.z);
-        trolleyObject.transform.rotation = Quaternion.Euler(0, getCameraAngle(trolleyObject.transform.position, prevPos), 0);
+        if (dist >= getTotalLength(spline))
+        {
+            dist = getTotalLength(spline);
+        }
+        player.transform.position = splineContainer.EvaluatePosition(getPercentage(splineContainer, dist));
+        player.transform.position = new Vector3(player.transform.position.x + posModifier.x, player.transform.position.y + posModifier.y, player.transform.position.z + posModifier.z);
 
-        prevPos = new Vector3(trolleyObject.transform.position.x, trolleyObject.transform.position.y, trolleyObject.transform.position.z);
+        if(dist != (Time.deltaTime * speed))
+        {
+            player.transform.rotation = getCameraAngle(player.transform.position, prevPos);
+        }
+
     }
 
-    public float getCameraAngle(Vector3 curPos, Vector3 prevPos)
+
+    public Quaternion getCameraAngle(Vector3 curPos, Vector3 prevPos)
     {
-        return Mathf.Atan2(curPos.x - prevPos.x, curPos.z - prevPos.z);
+        return Quaternion.LookRotation(curPos - prevPos, Vector3.up);
     }
 
     public float getPercentage(SplineContainer splineContainer, float curPoint)
@@ -200,7 +242,7 @@ public class SplineController : MonoBehaviour
 
     public IEnumerator startGameCorutine()
     {
-        trolleyObject.transform.DOMove(new Vector3(0, -1, 0), 0.5f)
+        player.transform.DOMove(new Vector3(0, -1, 0), 0.5f)
             .SetEase(Ease.InQuad)
             .SetRelative();
 
@@ -255,7 +297,7 @@ public class SplineController : MonoBehaviour
 
     public void showQuestionPanel()
     {
-        Debug.Log("Question!");
+        Debug.Log("Question! " + questionNumber);
 
         QuestionPanel.transform.DOLocalMove(new Vector3(0, -700, 0), 0.5f)
             .SetEase(Ease.OutQuad)
@@ -309,11 +351,12 @@ public class SplineController : MonoBehaviour
         //問題文/選択肢を差し替える, 画像をあてる
         QuestionText.GetComponent<TextMeshProUGUI>().text = question_contents;
 
-        int setOptions = int.Parse(pathIndicator.Substring((questionCount - 1) * 2, (questionCount - 1) * 2 + 1));
+        int setOptions = int.Parse(pathIndicator.Substring((questionCount - 1) * 2, 1));
+        Debug.Log("setOptions : " + setOptions + " questionCount : " + questionCount);
         if (setOptions == 1)
         {
-            Answer_Left.GetComponent<Image>().sprite = Answer_True_Image;
-            Answer_Right.GetComponent<Image>().sprite = Answer_False_Image;
+            Answer_Left.transform.GetChild(0).GetComponent<Image>().sprite = Answer_True_Image;
+            Answer_Right.transform.GetChild(0).GetComponent<Image>().sprite = Answer_False_Image;
 
             // Left に 1
             Answer_Left_Name.GetComponent<TextMeshProUGUI>().text = question_True_Option;
@@ -325,8 +368,8 @@ public class SplineController : MonoBehaviour
         }
         else
         {
-            Answer_Left.GetComponent<Image>().sprite = Answer_False_Image;
-            Answer_Right.GetComponent<Image>().sprite = Answer_True_Image;
+            Answer_Left.transform.GetChild(0).GetComponent<Image>().sprite = Answer_False_Image;
+            Answer_Right.transform.GetChild(0).GetComponent<Image>().sprite = Answer_True_Image;
 
             // Left に 1
             Answer_Left_Name.GetComponent<TextMeshProUGUI>().text = question_False_Option;
@@ -444,10 +487,17 @@ public class SplineController : MonoBehaviour
 
     public void changePath()
     {
+        dist = 0;
+        state = 0;
+
+
         if (gameState == GAME_STATE.RUNNING)
         {
             if (playerAnswer == correctAnswer)
             {
+                //次の道路に映るコルーチンを呼ぶ
+                StartCoroutine(pathToPath(splines[questionNumber - 1].transform.GetChild(0).gameObject, splines[questionNumber - 1].transform.GetChild(1).gameObject));
+
                 gameState = GAME_STATE.RUN_TO_COR;
                 spline = splines[questionNumber - 1].transform.GetChild(1).GetComponent<SplineContainer>();
             }
@@ -461,6 +511,12 @@ public class SplineController : MonoBehaviour
         {
             gameState = GAME_STATE.CORRECT;
             spline = splines[questionNumber - 1].transform.GetChild(3).GetComponent<SplineContainer>();
+
+            //player.transform.DOMove(
+            //    new Vector3(splines[questionNumber - 1].transform.GetChild(3).GetComponent<SplineContainer>().EvaluatePosition(0).x, splines[questionNumber - 1].transform.GetChild(3).GetComponent<SplineContainer>().EvaluatePosition(0).y, splines[questionNumber - 1].transform.GetChild(3).GetComponent<SplineContainer>().EvaluatePosition(0).z),
+            //    Time.deltaTime
+            //    );
+
         }
         else if (gameState == GAME_STATE.RUN_TO_FAL)
         {
@@ -474,11 +530,30 @@ public class SplineController : MonoBehaviour
             spline = splines[questionNumber - 1].transform.GetChild(0).GetComponent<SplineContainer>();
         }
 
-        dist = 0;
-        state = 0;
+
+
+
 
 
     }
+
+    private IEnumerator pathToPath(GameObject fromPath, GameObject toPath)
+    {
+        SplineContainer fromSpline = fromPath.GetComponent<SplineContainer>();
+        SplineContainer toSpline = toPath.GetComponent<SplineContainer>();
+
+        Vector3 fromPos = new Vector3(fromSpline.EvaluatePosition(1).x, fromSpline.EvaluatePosition(1).y, fromSpline.EvaluatePosition(1).z);
+        Vector3 toPos = new Vector3(toSpline.EvaluatePosition(0).x, toSpline.EvaluatePosition(0).y, toSpline.EvaluatePosition(0).z);
+
+        float dist = (toPos - fromPos).magnitude;
+
+        player.transform.DOMove(
+            new Vector3(toSpline.EvaluatePosition(0).x, toSpline.EvaluatePosition(0).y + 1, toSpline.EvaluatePosition(0).z),
+            0.15f
+            );
+        yield return new WaitForSeconds(0.15f);
+    }
+
 
     public void showCorrect()
     {
@@ -491,6 +566,36 @@ public class SplineController : MonoBehaviour
         }
     }
 
+    public void resetValue()
+    {
+        if (playerAnswer == correctAnswer)
+        {
+            CorrectAnswer.GetComponent<Animator>().Play("Idle");
+        }
+        else
+        {
+            FalseAnswer.GetComponent<Animator>().ResetTrigger("ShowFalseTrigger");
+        }
+
+        CountdownText.SetActive(false);
+
+    }
+
+    private IEnumerator runGameover()
+    {
+        pushIntoHole();
+        
+        yield return new WaitForSeconds(2.3f);
+
+        showGameover();
+
+        yield return new WaitForSeconds(2.0f);
+
+        displayReturnOptions();
+
+    }
+
+
     public void showWrong()
     {
         FalseAnswer.GetComponent<Animator>().SetTrigger("ShowFalseTrigger");
@@ -498,6 +603,8 @@ public class SplineController : MonoBehaviour
 
     public void showGameover()
     {
+        GameoverText.GetComponent<TextMeshProSimpleAnimator>().enabled = true;
+        //GameoverText.GetComponent<TextMeshProGeometryAnimator>().enabled = true;
 
         DOTween.To
             (
@@ -506,6 +613,36 @@ public class SplineController : MonoBehaviour
             1,
             .5f
             );
+
+    }
+
+    public void pushIntoHole()
+    {
+        fallPos = new Vector3(trolleyObject.transform.rotation.x, trolleyObject.transform.rotation.y, trolleyObject.transform.rotation.z);
+        Vector3 dir = ((trolleyObject.transform.position - prevPos) * 100).normalized;
+        //Debug.Log(dir.x + " " + dir.y + " " + dir.z);
+        //Vector3 dir = new Vector3(0, 0, 1);
+
+
+        //mainCamera.transform.parent = null;
+        mainCamera.transform.DOLocalMove(
+            new Vector3(0,0,6),
+            2f
+            ).SetDelay(0.1f);
+        //mainCamera.transform.DOLocalMove(
+        //    new Vector3(0, 0, 3),
+        //    1f
+        //    );
+        mainCamera.transform.DOLocalRotate(
+            new Vector3(90, 0, 0),
+            2f
+            ).SetDelay(0.3f);
+
+        Rigidbody rb = trolleyObject.GetComponent<Rigidbody>();
+        rb.useGravity = true;
+        rb.isKinematic = false;
+        rb.AddForce(dir * pushScale, ForceMode.Impulse);
+
 
     }
 
