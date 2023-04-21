@@ -89,12 +89,13 @@ public class SplineController : MonoBehaviour
         spline = splines[0].transform.GetChild(0).GetComponent<SplineContainer>();
         gameState = GAME_STATE.RUNNING;
         DG.Tweening.DOTween.SetTweensCapacity(tweenersCapacity: 1000, sequencesCapacity: 400);
+        DOTween.Clear(true);
+        startGame();
 
     }
 
     void Start()
     {
-        startGame();
     }
 
     // Update is called once per frame
@@ -126,7 +127,10 @@ public class SplineController : MonoBehaviour
                 {
                     Input.gyro.enabled = true;
                 }
-                DetectPlayersAnswer();
+                if(isCounting)
+                {
+                    DetectPlayersAnswer();                   
+                }
             }
             else
             {
@@ -174,7 +178,11 @@ public class SplineController : MonoBehaviour
             {
 
 
-
+            if (getPercentage(spline, dist) > 0.4 && state < 0.4)
+            {
+                state = 0.4f;
+                returnTrollyPos();
+            }
                 if (getPercentage(spline, dist) > 0.7 && state < 0.7)
                 {
                     StartCoroutine(runGameclear());
@@ -205,6 +213,7 @@ public class SplineController : MonoBehaviour
                 {
                     state = 1;
                     resetValue();
+
                     changePath();
                 }
             }
@@ -343,6 +352,7 @@ public class SplineController : MonoBehaviour
         }
 
         isCounting = false;
+
         //timeRemaining = startTimeRemaining;
 
         DOTween.To
@@ -682,6 +692,9 @@ public class SplineController : MonoBehaviour
 
         CountdownText.SetActive(false);
 
+        DOTween.KillAll();
+        DOTween.Clear(true);
+
     }
 
     private IEnumerator runGameover()
@@ -820,26 +833,29 @@ public class SplineController : MonoBehaviour
         }
 
         float tiltAngle = Mathf.Clamp(baseAngle, -30, 30);
-        float sizeScale = (tiltAngle / 60) + 1;
+        float sizeScale = (tiltAngle / 90) + 1;
 
         float trolleyAngle = tiltAngle / 2;
 
 
 
-        float leftImageSize = baseImageSize * sizeScale;
-        float rightImageSize = baseImageSize * (2 - sizeScale);
+        float leftImageSize = baseImageSize * (2 - sizeScale);
+        float rightImageSize = baseImageSize * sizeScale;
+
+        float leftNameSize = baseNameSize * (2 - sizeScale);
+        float rightNameSize = baseNameSize * sizeScale;
 
         Answer_Left.transform.localScale = new Vector3(leftImageSize, leftImageSize, 1);
         Answer_Right.transform.localScale = new Vector3(rightImageSize, rightImageSize, 1);
-        Answer_Left_Name.transform.localScale = new Vector3(leftImageSize, leftImageSize, 1);
-        Answer_Right_Name.transform.localScale = new Vector3(rightImageSize, rightImageSize, 1);
+        Answer_Left_Name.transform.localScale = new Vector3(leftNameSize, leftNameSize, 1);
+        Answer_Right_Name.transform.localScale = new Vector3(rightNameSize, rightNameSize, 1);
 
         //tiltedTrolleyObject.transform.DOLocalRotate(
         //    new Vector3(0, 0, -12),
         //    0.2f
         //    );
 
-        player.transform.localRotation = Quaternion.Euler(0, 0, trolleyAngle);
+        tiltedTrolleyObject.transform.localRotation = Quaternion.Euler(0, 0, -trolleyAngle);
 
 
         //PC テスト用スクリプト
