@@ -40,6 +40,7 @@ public class SplineController : MonoBehaviour
     public event CountEventHandler OnCountZero; // define an event to handle the end of the countdown
     private bool isCounting = false;
     private bool isAnswerCorrect = true;
+    private bool isCameraFollowing = true;
     private float baseImageSize;
     private float baseNameSize;
     private int correctAnswer;
@@ -87,6 +88,7 @@ public class SplineController : MonoBehaviour
         //Debug.Log("Num: " + csvProcessing.);
         spline = splines[0].transform.GetChild(0).GetComponent<SplineContainer>();
         gameState = GAME_STATE.RUNNING;
+        DG.Tweening.DOTween.SetTweensCapacity(tweenersCapacity: 1000, sequencesCapacity: 400);
 
     }
 
@@ -109,6 +111,8 @@ public class SplineController : MonoBehaviour
             //    trolleyObject.transform.rotation = Quaternion.Euler(fallPos.x, fallPos.y, fallPos.z);
             //}
         }
+
+       
 
 
 
@@ -164,29 +168,62 @@ public class SplineController : MonoBehaviour
 
         if (gameState == GAME_STATE.CORRECT)
         {
-            if (getPercentage(spline, dist) > 0.3 && state < 0.3)
+
+
+            if (pathIndicator.Length == (questionNumber * 2))
             {
-                state = 0.3f;
-                //正解表示する
-                showCorrect();
+
+
+
+                if (getPercentage(spline, dist) > 0.7 && state < 0.7)
+                {
+                    StartCoroutine(runGameclear());
+                }
+
+                if(speed < 3)
+                {
+                    isCameraFollowing = false;
+                }
+
+            }
+            else
+            {
+                if (getPercentage(spline, dist) > 0.4 && state < 0.4)
+                {
+                    state = 0.4f;
+                    returnTrollyPos();
+                }
+
+                if (getPercentage(spline, dist) > 0.6 && state < 0.6)
+                {
+                    state = 0.6f;
+                    //正解表示する
+                    showCorrect();
+                }
+
+                if (getPercentage(spline, dist) >= 1 && state < 1)
+                {
+                    state = 1;
+                    resetValue();
+                    changePath();
+                }
             }
 
-            if (getPercentage(spline, dist) >= 1 && state < 1)
-            {
-                state = 1;
-                resetValue();
-                changePath();
-                //正解表示する
-            }
+
         }
 
         if (gameState == GAME_STATE.FALSE)
         {
+            if (getPercentage(spline, dist) > 0.4 && state < 0.4)
+            {
+                state = 0.4f;
+                returnTrollyPos();
+            }
+
             if (getPercentage(spline, dist) > 0.6 && state < 0.6)
             {
                 state = 0.6f;
                 ////不正解表示する
-                //showWrong();
 
             }
             else if (getPercentage(spline, dist) > 0.8 && state < 0.8)
@@ -195,6 +232,8 @@ public class SplineController : MonoBehaviour
                 ////不正解表示する
                 //showGameover();
                 //displayReturnOptions();
+                //showWrong();
+
             }
             else if (getPercentage(spline, dist) >= 1 && state < 1)
             {
@@ -224,11 +263,19 @@ public class SplineController : MonoBehaviour
         player.transform.position = splineContainer.EvaluatePosition(getPercentage(splineContainer, dist));
         player.transform.position = new Vector3(player.transform.position.x + posModifier.x, player.transform.position.y + posModifier.y, player.transform.position.z + posModifier.z);
 
-        if(dist != (Time.deltaTime * speed))
+        if(dist != (Time.deltaTime * speed) && isCameraFollowing)
         {
             player.transform.rotation = getCameraAngle(player.transform.position, prevPos);
         }
 
+    }
+
+    public void returnTrollyPos()
+    {
+        tiltedTrolleyObject.transform.DOLocalRotate
+            (new Vector3(player.transform.rotation.x, player.transform.rotation.y, 0),
+            2f
+        );
     }
 
 
@@ -417,33 +464,30 @@ public class SplineController : MonoBehaviour
         List<GameObject> Answers = new List<GameObject> { Answer_Left, Answer_Right };
         List<GameObject> Answer_texts = new List<GameObject> { Answer_Left_Name, Answer_Right_Name };
         int answerSide = getPlayersAnswer();
+        Debug.Log("Answer ; " + answerSide + " Correct Answer : " + correctAnswer);
 
         //Let players answer move to the center
         Answers[answerSide].transform.DOLocalMove(new Vector3(0 - Answers[answerSide].transform.localPosition.x, 0, 0), 0.2f)
             .SetEase(Ease.OutQuad)
-            .SetRelative()
-            .SetDelay(1f);
+            .SetRelative();
 
         Answer_texts[answerSide].transform.DOLocalMove(new Vector3(0 - Answer_texts[answerSide].transform.localPosition.x, 0, 0), 0.2f)
             .SetEase(Ease.OutQuad)
-            .SetRelative()
-            .SetDelay(1f);
+            .SetRelative();
 
         //Make other answer disappear
         Answers[1 - answerSide].transform.DOScale(new Vector3(0.01f, 0.01f, 1), 0.2f)
-            .SetEase(Ease.OutQuad)
-            .SetDelay(1f);
+            .SetEase(Ease.OutQuad);
 
         Answer_texts[1 - answerSide].transform.DOScale(new Vector3(0.01f, 0.01f, 1), 0.2f)
-            .SetEase(Ease.OutQuad)
-            .SetDelay(1f);
+            .SetEase(Ease.OutQuad);
 
 
         //Let a question sentence and an aswer go up
         QuestionPanel.transform.DOLocalMove(new Vector3(0, 700, 0), .2f)
             .SetEase(Ease.OutQuad)
             .SetRelative()
-            .SetDelay(2f);
+            .SetDelay(0.7f);
 
 
         //GetComponent<TrolleyMoveController>().trolleyObject.transform.DOLocalRotate(
@@ -566,6 +610,26 @@ public class SplineController : MonoBehaviour
         yield return new WaitForSeconds(0.15f);
     }
 
+    private IEnumerator runGameclear()
+    {
+        //減速させる
+        delayTrolleySpeed();
+
+        yield return new WaitForSeconds(5f);
+
+        //ゲームクリア表示する
+        showGameclear();
+        isPlaying = false;
+
+        yield return new WaitForSeconds(2.0f);
+
+        //続きどうしたいか質問する
+        displayReturnOptions();
+
+
+
+    }
+
 
     public void showCorrect()
     {
@@ -576,6 +640,33 @@ public class SplineController : MonoBehaviour
             CorrectAnswer.GetComponent<Animator>().SetTrigger("ShowCircleTrigger");
 
         }
+    }
+
+    public void delayTrolleySpeed()
+    {
+        DOTween.To
+            (
+            () => speed,
+            (x) => speed = x,
+            0,
+            5f
+         );
+    }
+
+
+    public void showGameclear()
+    {
+        GameclearText.GetComponent<TextMeshProSimpleAnimator>().enabled = true;
+        //GameoverText.GetComponent<TextMeshProGeometryAnimator>().enabled = true;
+
+        DOTween.To
+            (
+            () => GameclearText.GetComponent<TextMeshProUGUI>().alpha,
+            (x) => GameclearText.GetComponent<TextMeshProUGUI>().alpha = x,
+            1,
+            .5f
+            );
+            
     }
 
     public void resetValue()
@@ -669,8 +760,8 @@ public class SplineController : MonoBehaviour
             1,
             .5f
         ).SetDelay(2.0f);
-
         DOTween.To
+
         (
             () => EndButton.transform.Find("Text").GetComponent<TextMeshProUGUI>().alpha,
             (x) => EndButton.transform.Find("Text").GetComponent<TextMeshProUGUI>().alpha = x,
@@ -683,29 +774,37 @@ public class SplineController : MonoBehaviour
 
         RetryButton.GetComponent<Button>().interactable = true;
         EndButton.GetComponent<Button>().interactable = true;
+
     }
 
 
 
     public void BackToRetry()
     {
-        Scene loadScene = SceneManager.GetActiveScene();
-        // 現在のシーンを再読み込みする
-        SceneManager.LoadScene("Main");
-
         RetryButton.GetComponent<Button>().interactable = false;
         EndButton.GetComponent<Button>().interactable = false;
+        Scene loadScene = SceneManager.GetActiveScene();
+
+        // 現在のシーンを再読み込みする
+        DOTween.KillAll();
+        DOTween.Clear(true);
+        SceneManager.LoadScene("Main");
+
+
     }
 
     public void BackToMenu()
     {
+        RetryButton.GetComponent<Button>().interactable = false;
+        EndButton.GetComponent<Button>().interactable = false;
         //GetComponent<TrolleyMoveController>().enabled = true;
         //timeline_gameOver.GetComponent<TrolleyMoveController>().enabled = true;
+        DOTween.KillAll();
+        DOTween.Clear(true);
         SceneManager.LoadScene("StartScene");
 
         
-        RetryButton.GetComponent<Button>().interactable = false;
-        EndButton.GetComponent<Button>().interactable = false;
+
 
     }
 
