@@ -19,12 +19,16 @@ public class SplineController_StartScene : MonoBehaviour
 
     void Awake()
     {
-        spline = splineObject.GetComponent<SplineContainer>();
+
     }
 
     void Start()
     {
-
+        spline = splineObject.GetComponent<SplineContainer>();
+        //prevPos = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
+        prevPos = new Vector3(0,0,0);
+        //player.transform.position = spline.EvaluatePosition(getPercentage(spline, 0));
+        //player.transform.position = new Vector3(player.transform.position.x + posModifier.x, player.transform.position.y + posModifier.y, player.transform.position.z + posModifier.z);
     }
 
     // Update is called once per frame
@@ -39,17 +43,23 @@ public class SplineController_StartScene : MonoBehaviour
 
     public void moveTrolley(SplineContainer splineContainer)
     {
+        Debug.Log("hiii");
         dist += Time.deltaTime * speed;
-        if(dist>=getTotalLength(spline))
+        if (dist >= getTotalLength(spline))
         {
             dist = getTotalLength(spline);
         }
         player.transform.position = splineContainer.EvaluatePosition(getPercentage(splineContainer, dist));
         player.transform.position = new Vector3(player.transform.position.x + posModifier.x, player.transform.position.y + posModifier.y, player.transform.position.z + posModifier.z);
 
-        player.transform.rotation = getCameraAngle(player.transform.position, prevPos);
+        if (prevPos != new Vector3(0,0,0))
+        {
+            Debug.Log("heyyy");
+            player.transform.rotation = getCameraAngle(player.transform.position, prevPos);
+        }
 
         prevPos = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
+
     }
 
     public Quaternion getCameraAngle(Vector3 curPos, Vector3 prevPos)

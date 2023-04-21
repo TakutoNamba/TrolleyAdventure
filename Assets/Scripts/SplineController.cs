@@ -118,8 +118,17 @@ public class SplineController : MonoBehaviour
 
             if (state == triggers[1])
             {
+                if(!Input.gyro.enabled)
+                {
+                    Input.gyro.enabled = true;
+                }
                 DetectPlayersAnswer();
             }
+            else
+            {
+                Input.gyro.enabled = false;
+            }
+            
 
             if (getPercentage(spline, dist) > triggers[0] && state < triggers[0])
             {
@@ -496,7 +505,7 @@ public class SplineController : MonoBehaviour
             if (playerAnswer == correctAnswer)
             {
                 //次の道路に映るコルーチンを呼ぶ
-                StartCoroutine(pathToPath(splines[questionNumber - 1].transform.GetChild(0).gameObject, splines[questionNumber - 1].transform.GetChild(1).gameObject));
+                //StartCoroutine(pathToPath(splines[questionNumber - 1].transform.GetChild(0).gameObject, splines[questionNumber - 1].transform.GetChild(1).gameObject));
 
                 gameState = GAME_STATE.RUN_TO_COR;
                 spline = splines[questionNumber - 1].transform.GetChild(1).GetComponent<SplineContainer>();
@@ -700,116 +709,118 @@ public class SplineController : MonoBehaviour
 
     private void DetectPlayersAnswer()
     {
-        //Quaternion rotation = Input.gyro.attitude;
-        //float baseAngle = rotation.eulerAngles.z;
+        Quaternion rotation = Input.gyro.attitude;
+        float baseAngle = rotation.eulerAngles.z;
 
-        //if (baseAngle > 180)
-        //{
-        //    baseAngle -= 360;
-        //}
+        if (baseAngle > 180)
+        {
+            baseAngle -= 360;
+        }
 
-        //float tiltAngle = Mathf.Clamp(baseAngle, -30, 30);
-        //float sizeScale = (tiltAngle / 60) + 1;
+        float tiltAngle = Mathf.Clamp(baseAngle, -30, 30);
+        float sizeScale = (tiltAngle / 60) + 1;
 
-        //float trolleyAngle = tiltAngle / 5;
+        float trolleyAngle = tiltAngle / 2;
 
 
 
-        //float leftImageSize = baseImageSize * sizeScale;
-        //float rightImageSize = baseImageSize * (2 - sizeScale);
+        float leftImageSize = baseImageSize * sizeScale;
+        float rightImageSize = baseImageSize * (2 - sizeScale);
 
-        //Answer_Left.transform.localScale = new Vector3(leftImageSize, leftImageSize, 1);
-        //Answer_Right.transform.localScale = new Vector3(rightImageSize, rightImageSize, 1);
-
-        //GetComponent<TrolleyMoveController>().trolleyObject.transform.rotation = new Vector3(0, 0, trolleyAngle);
+        Answer_Left.transform.localScale = new Vector3(leftImageSize, leftImageSize, 1);
+        Answer_Right.transform.localScale = new Vector3(rightImageSize, rightImageSize, 1);
+        Answer_Left_Name.transform.localScale = new Vector3(leftImageSize, leftImageSize, 1);
+        Answer_Right_Name.transform.localScale = new Vector3(rightImageSize, rightImageSize, 1);
+        
+        player.transform.rotation = Quaternion.Euler(0, 0, trolleyAngle);
 
 
         //PC テスト用スクリプト
-        float BiggerSize = baseImageSize * 1.1f;
-        float SmallerSize = baseImageSize * 0.8f; 
-        float BiggerName = baseNameSize * 1.1f;
-        float SmallerName = baseNameSize * 0.8f;
+        //float BiggerSize = baseImageSize * 1.1f;
+        //float SmallerSize = baseImageSize * 0.8f; 
+        //float BiggerName = baseNameSize * 1.1f;
+        //float SmallerName = baseNameSize * 0.8f;
 
-        if (Input.GetKeyDown(KeyCode.A) && Answer_Left.transform.localScale.x == Answer_Right.transform.localScale.x)
-        {
-            Answer_Left.transform.DOScale(new Vector3(BiggerSize, BiggerSize, 1), 0.2f)
-                .SetEase(Ease.OutQuad);
+        //if (Input.GetKeyDown(KeyCode.A) && Answer_Left.transform.localScale.x == Answer_Right.transform.localScale.x)
+        //{
+        //    Answer_Left.transform.DOScale(new Vector3(BiggerSize, BiggerSize, 1), 0.2f)
+        //        .SetEase(Ease.OutQuad);
 
-            Answer_Right.transform.DOScale(new Vector3(SmallerSize, SmallerSize, 1), 0.2f)
-                .SetEase(Ease.OutQuad);
+        //    Answer_Right.transform.DOScale(new Vector3(SmallerSize, SmallerSize, 1), 0.2f)
+        //        .SetEase(Ease.OutQuad);
 
-            Answer_Left_Name.transform.DOScale(new Vector3(BiggerName, BiggerName, 1), 0.2f)
-                .SetEase(Ease.OutQuad);
+        //    Answer_Left_Name.transform.DOScale(new Vector3(BiggerName, BiggerName, 1), 0.2f)
+        //        .SetEase(Ease.OutQuad);
 
-            Answer_Right_Name.transform.DOScale(new Vector3(SmallerName, SmallerName, 1), 0.2f)
-                .SetEase(Ease.OutQuad);
+        //    Answer_Right_Name.transform.DOScale(new Vector3(SmallerName, SmallerName, 1), 0.2f)
+        //        .SetEase(Ease.OutQuad);
 
-            //GetComponent<TrolleyMoveController>().trolleyObject.transform.DOLocalRotate(
-            //    new Vector3(0, 0, 6),
-            //    0.2f
-            //    );
+        //    //GetComponent<TrolleyMoveController>().trolleyObject.transform.DOLocalRotate(
+        //    //    new Vector3(0, 0, 6),
+        //    //    0.2f
+        //    //    );
 
-        }
-        else if (Input.GetKeyDown(KeyCode.S) & Answer_Right.transform.localScale.x == Answer_Left.transform.localScale.x)
-        {
-            Answer_Left.transform.DOScale(new Vector3(SmallerSize, SmallerSize, 1), 0.2f)
-                .SetEase(Ease.OutQuad);
+        //}
+        //else if (Input.GetKeyDown(KeyCode.S) & Answer_Right.transform.localScale.x == Answer_Left.transform.localScale.x)
+        //{
+        //    Answer_Left.transform.DOScale(new Vector3(SmallerSize, SmallerSize, 1), 0.2f)
+        //        .SetEase(Ease.OutQuad);
 
-            Answer_Right.transform.DOScale(new Vector3(BiggerSize, BiggerSize, 1), 0.2f)
-                .SetEase(Ease.OutQuad);
+        //    Answer_Right.transform.DOScale(new Vector3(BiggerSize, BiggerSize, 1), 0.2f)
+        //        .SetEase(Ease.OutQuad);
 
-            Answer_Left_Name.transform.DOScale(new Vector3(SmallerName, SmallerName, 1), 0.2f)
-                .SetEase(Ease.OutQuad);
+        //    Answer_Left_Name.transform.DOScale(new Vector3(SmallerName, SmallerName, 1), 0.2f)
+        //        .SetEase(Ease.OutQuad);
 
-            Answer_Right_Name.transform.DOScale(new Vector3(BiggerName, BiggerName, 1), 0.2f)
-                .SetEase(Ease.OutQuad);
+        //    Answer_Right_Name.transform.DOScale(new Vector3(BiggerName, BiggerName, 1), 0.2f)
+        //        .SetEase(Ease.OutQuad);
 
-            //GetComponent<TrolleyMoveController>().trolleyObject.transform.DOLocalRotate(
-            //    new Vector3(0, 0, -6),
-            //    0.2f
-            //    );
+        //    //GetComponent<TrolleyMoveController>().trolleyObject.transform.DOLocalRotate(
+        //    //    new Vector3(0, 0, -6),
+        //    //    0.2f
+        //    //    );
 
-        }
-        else if (Input.GetKeyDown(KeyCode.A) && Answer_Left.transform.localScale.x < Answer_Right.transform.localScale.x)
-        {
-            Answer_Left.transform.DOScale(new Vector3(BiggerSize, BiggerSize, 1), 0.4f)
-                .SetEase(Ease.OutQuad);
+        //}
+        //else if (Input.GetKeyDown(KeyCode.A) && Answer_Left.transform.localScale.x < Answer_Right.transform.localScale.x)
+        //{
+        //    Answer_Left.transform.DOScale(new Vector3(BiggerSize, BiggerSize, 1), 0.4f)
+        //        .SetEase(Ease.OutQuad);
 
-            Answer_Right.transform.DOScale(new Vector3(SmallerSize, SmallerSize, 1), 0.4f)
-                .SetEase(Ease.OutQuad);
+        //    Answer_Right.transform.DOScale(new Vector3(SmallerSize, SmallerSize, 1), 0.4f)
+        //        .SetEase(Ease.OutQuad);
 
-            Answer_Left_Name.transform.DOScale(new Vector3(BiggerName, BiggerName, 1), 0.4f)
-                .SetEase(Ease.OutQuad);
+        //    Answer_Left_Name.transform.DOScale(new Vector3(BiggerName, BiggerName, 1), 0.4f)
+        //        .SetEase(Ease.OutQuad);
 
-            Answer_Right_Name.transform.DOScale(new Vector3(SmallerName, SmallerName, 1), 0.4f)
-                .SetEase(Ease.OutQuad);
+        //    Answer_Right_Name.transform.DOScale(new Vector3(SmallerName, SmallerName, 1), 0.4f)
+        //        .SetEase(Ease.OutQuad);
 
-            //GetComponent<TrolleyMoveController>().trolleyObject.transform.DOLocalRotate(
-            //    new Vector3(0, 0, 12),
-            //    0.2f
-            //    );
+        //    //GetComponent<TrolleyMoveController>().trolleyObject.transform.DOLocalRotate(
+        //    //    new Vector3(0, 0, 12),
+        //    //    0.2f
+        //    //    );
 
-        }
-        else if (Input.GetKeyDown(KeyCode.S) && Answer_Left.transform.localScale.x > Answer_Right.transform.localScale.x)
-        {
-            Answer_Left.transform.DOScale(new Vector3(SmallerSize, SmallerSize, 1), 0.4f)
-                .SetEase(Ease.OutQuad);
+        //}
+        //else if (Input.GetKeyDown(KeyCode.S) && Answer_Left.transform.localScale.x > Answer_Right.transform.localScale.x)
+        //{
+        //    Answer_Left.transform.DOScale(new Vector3(SmallerSize, SmallerSize, 1), 0.4f)
+        //        .SetEase(Ease.OutQuad);
 
-            Answer_Right.transform.DOScale(new Vector3(BiggerSize, BiggerSize, 1), 0.4f)
-                .SetEase(Ease.OutQuad);
+        //    Answer_Right.transform.DOScale(new Vector3(BiggerSize, BiggerSize, 1), 0.4f)
+        //        .SetEase(Ease.OutQuad);
 
-            Answer_Left_Name.transform.DOScale(new Vector3(SmallerName, SmallerName, 1), 0.4f)
-                .SetEase(Ease.OutQuad);
+        //    Answer_Left_Name.transform.DOScale(new Vector3(SmallerName, SmallerName, 1), 0.4f)
+        //        .SetEase(Ease.OutQuad);
 
-            Answer_Right_Name.transform.DOScale(new Vector3(BiggerName, BiggerName, 1), 0.4f)
-                .SetEase(Ease.OutQuad);
+        //    Answer_Right_Name.transform.DOScale(new Vector3(BiggerName, BiggerName, 1), 0.4f)
+        //        .SetEase(Ease.OutQuad);
 
-            //GetComponent<TrolleyMoveController>().trolleyObject.transform.DOLocalRotate(
-            //    new Vector3(0, 0, -12),
-            //    0.2f
-            //    );
+        //    //GetComponent<TrolleyMoveController>().trolleyObject.transform.DOLocalRotate(
+        //    //    new Vector3(0, 0, -12),
+        //    //    0.2f
+        //    //    );
 
-        }
+        //}
     }
 
 }
