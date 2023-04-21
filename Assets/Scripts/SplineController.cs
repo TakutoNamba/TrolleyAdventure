@@ -54,6 +54,7 @@ public class SplineController : MonoBehaviour
     public float[] triggers;
     public GameObject player;
     public GameObject trolleyObject;
+    public GameObject tiltedTrolleyObject;
     public GameObject mainCamera;
     private SplineContainer spline;
     public GameObject startCountdownText;
@@ -109,7 +110,6 @@ public class SplineController : MonoBehaviour
             //}
         }
 
-        prevPos = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
 
 
 
@@ -206,6 +206,9 @@ public class SplineController : MonoBehaviour
 
             }
         }
+
+        prevPos = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
+
 
 
     }
@@ -731,13 +734,18 @@ public class SplineController : MonoBehaviour
         Answer_Right.transform.localScale = new Vector3(rightImageSize, rightImageSize, 1);
         Answer_Left_Name.transform.localScale = new Vector3(leftImageSize, leftImageSize, 1);
         Answer_Right_Name.transform.localScale = new Vector3(rightImageSize, rightImageSize, 1);
-        
-        player.transform.rotation = Quaternion.Euler(0, 0, trolleyAngle);
+
+        //tiltedTrolleyObject.transform.DOLocalRotate(
+        //    new Vector3(0, 0, -12),
+        //    0.2f
+        //    );
+
+        player.transform.localRotation = Quaternion.Euler(0, 0, trolleyAngle);
 
 
         //PC テスト用スクリプト
         //float BiggerSize = baseImageSize * 1.1f;
-        //float SmallerSize = baseImageSize * 0.8f; 
+        //float SmallerSize = baseImageSize * 0.8f;
         //float BiggerName = baseNameSize * 1.1f;
         //float SmallerName = baseNameSize * 0.8f;
 
@@ -795,10 +803,12 @@ public class SplineController : MonoBehaviour
         //    Answer_Right_Name.transform.DOScale(new Vector3(SmallerName, SmallerName, 1), 0.4f)
         //        .SetEase(Ease.OutQuad);
 
-        //    //GetComponent<TrolleyMoveController>().trolleyObject.transform.DOLocalRotate(
-        //    //    new Vector3(0, 0, 12),
-        //    //    0.2f
-        //    //    );
+        //    tiltedTrolleyObject.transform.DOLocalRotate(
+        //        new Vector3(0, 0, 12),
+        //        0.2f
+        //        );
+
+
 
         //}
         //else if (Input.GetKeyDown(KeyCode.S) && Answer_Left.transform.localScale.x > Answer_Right.transform.localScale.x)
@@ -815,10 +825,10 @@ public class SplineController : MonoBehaviour
         //    Answer_Right_Name.transform.DOScale(new Vector3(BiggerName, BiggerName, 1), 0.4f)
         //        .SetEase(Ease.OutQuad);
 
-        //    //GetComponent<TrolleyMoveController>().trolleyObject.transform.DOLocalRotate(
-        //    //    new Vector3(0, 0, -12),
-        //    //    0.2f
-        //    //    );
+        //    tiltedTrolleyObject.transform.DOLocalRotate(
+        //        new Vector3(0, 0, -12),
+        //        0.2f
+        //        );
 
         //}
     }
