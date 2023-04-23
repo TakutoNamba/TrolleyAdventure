@@ -45,6 +45,7 @@ public class SplineController : MonoBehaviour
     private float baseNameSize;
     private int correctAnswer;
     private int playerAnswer;
+    private float prevAngle;
 
 
 
@@ -205,7 +206,7 @@ public class SplineController : MonoBehaviour
                 if (getPercentage(spline, dist) > 0.6 && state < 0.6)
                 {
                     state = 0.6f;
-                    //³‰ğ•\¦‚·‚é
+                    //ï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                     showCorrect();
                 }
 
@@ -232,13 +233,13 @@ public class SplineController : MonoBehaviour
             if (getPercentage(spline, dist) > 0.6 && state < 0.6)
             {
                 state = 0.6f;
-                ////•s³‰ğ•\¦‚·‚é
+                ////ï¿½sï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
             }
             else if (getPercentage(spline, dist) > 0.8 && state < 0.8)
             {
                 state = 0.8f;
-                ////•s³‰ğ•\¦‚·‚é
+                ////ï¿½sï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 //showGameover();
                 //displayReturnOptions();
                 //showWrong();
@@ -247,7 +248,7 @@ public class SplineController : MonoBehaviour
             else if (getPercentage(spline, dist) >= 1 && state < 1)
             {
                 state = 1.0f;
-                //•s³‰ğ•\¦‚·‚é
+                //ï¿½sï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 isPlaying = false;
 
                 StartCoroutine(runGameover());
@@ -321,7 +322,7 @@ public class SplineController : MonoBehaviour
 
         yield return new WaitForSeconds(3f);
 
-        //ƒgƒƒbƒR“®‚©‚·ƒXƒNƒŠƒvƒg
+        //ï¿½gï¿½ï¿½ï¿½bï¿½Rï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½Nï¿½ï¿½ï¿½vï¿½g
         isPlaying = true;
     }
 
@@ -404,20 +405,20 @@ public class SplineController : MonoBehaviour
 
     public void decideQuestionsFromDatabase(int questionCount)
     {
-        //ƒ‰ƒ“ƒ_ƒ€‚ÉƒNƒCƒY‚Ì–â‘è‚ğŒˆ’è
+        //ï¿½ï¿½ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½ÉƒNï¿½Cï¿½Yï¿½Ì–ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         int quizNum = csvProcessing.pickQuestionNum();
 
-        //QuizDatabaseManager ‚©‚ç–â‘è•¶/‘I‘ğˆ‚ğæ‚èo‚·
+        //QuizDatabaseManager ï¿½ï¿½ï¿½ï¿½ï¿½è•¶/ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½oï¿½ï¿½
         string question_contents = csvProcessing.getQuestionDatas(quizNum);
         string question_True_Option = csvProcessing.getChoicesData(quizNum, true);
         string question_False_Option = csvProcessing.getChoicesData(quizNum, false);
 
-        //Resources/Images/ ‚©‚ç–â‘è‚ğæ‚èo‚·
+        //Resources/Images/ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½oï¿½ï¿½
         Sprite Answer_True_Image = Resources.Load<Sprite>("Images/" + quizNum.ToString() + "1");
         Sprite Answer_False_Image = Resources.Load<Sprite>("Images/" + quizNum.ToString() + "0");
 
 
-        //–â‘è•¶/‘I‘ğˆ‚ğ·‚µ‘Ö‚¦‚é, ‰æ‘œ‚ğ‚ ‚Ä‚é
+        //ï¿½ï¿½è•¶/ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö‚ï¿½ï¿½ï¿½, ï¿½æ‘œï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½
         QuestionText.GetComponent<TextMeshProUGUI>().text = question_contents;
 
         int setOptions = int.Parse(pathIndicator.Substring((questionCount - 1) * 2, 1));
@@ -427,9 +428,9 @@ public class SplineController : MonoBehaviour
             Answer_Left.transform.GetChild(0).GetComponent<Image>().sprite = Answer_True_Image;
             Answer_Right.transform.GetChild(0).GetComponent<Image>().sprite = Answer_False_Image;
 
-            // Left ‚É 1
+            // Left ï¿½ï¿½ 1
             Answer_Left_Name.GetComponent<TextMeshProUGUI>().text = question_True_Option;
-            // Right ‚É c‚Á‚½•û
+            // Right ï¿½ï¿½ ï¿½cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             Answer_Right_Name.GetComponent<TextMeshProUGUI>().text = question_False_Option;
 
             correctAnswer = 0;
@@ -440,7 +441,7 @@ public class SplineController : MonoBehaviour
             Answer_Left.transform.GetChild(0).GetComponent<Image>().sprite = Answer_False_Image;
             Answer_Right.transform.GetChild(0).GetComponent<Image>().sprite = Answer_True_Image;
 
-            // Left ‚É 1
+            // Left ï¿½ï¿½ 1
             Answer_Left_Name.GetComponent<TextMeshProUGUI>().text = question_False_Option;
             Answer_Right_Name.GetComponent<TextMeshProUGUI>().text = question_True_Option;
 
@@ -561,7 +562,7 @@ public class SplineController : MonoBehaviour
         {
             if (playerAnswer == correctAnswer)
             {
-                //Ÿ‚Ì“¹˜H‚É‰f‚éƒRƒ‹[ƒ`ƒ“‚ğŒÄ‚Ô
+                //ï¿½ï¿½ï¿½Ì“ï¿½ï¿½Hï¿½É‰fï¿½ï¿½Rï¿½ï¿½ï¿½[ï¿½`ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½
                 //StartCoroutine(pathToPath(splines[questionNumber - 1].transform.GetChild(0).gameObject, splines[questionNumber - 1].transform.GetChild(1).gameObject));
 
                 gameState = GAME_STATE.RUN_TO_COR;
@@ -622,18 +623,18 @@ public class SplineController : MonoBehaviour
 
     private IEnumerator runGameclear()
     {
-        //Œ¸‘¬‚³‚¹‚é
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         delayTrolleySpeed();
 
         yield return new WaitForSeconds(5f);
 
-        //ƒQ[ƒ€ƒNƒŠƒA•\¦‚·‚é
+        //ï¿½Qï¿½[ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½Aï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         showGameclear();
         isPlaying = false;
 
         yield return new WaitForSeconds(2.0f);
 
-        //‘±‚«‚Ç‚¤‚µ‚½‚¢‚©¿–â‚·‚é
+        //ï¿½ï¿½ï¿½ï¿½ï¿½Ç‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½â‚·ï¿½ï¿½
         displayReturnOptions();
 
 
@@ -645,7 +646,7 @@ public class SplineController : MonoBehaviour
     {
         if (playerAnswer == correctAnswer)
         {
-            //³‰ğ -> Z‚ğ•\¦
+            //ï¿½ï¿½ï¿½ï¿½ -> ï¿½Zï¿½ï¿½\ï¿½ï¿½
             Debug.Log("CORRECT");
             CorrectAnswer.GetComponent<Animator>().SetTrigger("ShowCircleTrigger");
 
@@ -798,7 +799,7 @@ public class SplineController : MonoBehaviour
         EndButton.GetComponent<Button>().interactable = false;
         Scene loadScene = SceneManager.GetActiveScene();
 
-        // Œ»İ‚ÌƒV[ƒ“‚ğÄ“Ç‚İ‚İ‚·‚é
+        // ï¿½ï¿½ï¿½İ‚ÌƒVï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½Ä“Ç‚İï¿½ï¿½İ‚ï¿½ï¿½ï¿½
         DOTween.KillAll();
         DOTween.Clear(true);
         SceneManager.LoadScene("Main");
@@ -824,41 +825,108 @@ public class SplineController : MonoBehaviour
 
     private void DetectPlayersAnswer()
     {
-        Quaternion rotation = Input.gyro.attitude;
-        float baseAngle = rotation.eulerAngles.z;
 
-        if (baseAngle > 180)
+        
+
+        // Quaternion rotation = Input.gyro.attitude;
+
+
+        float baseAngle = detectAngle();
+
+        // if (baseAngle > 180)
+        // {
+        //     baseAngle -= 360;
+        // }
+
+        // float tiltAngle = Mathf.Clamp(baseAngle, -30, 30);
+        // float sizeScale = (tiltAngle / 90) + 1;
+        // float trolleyAngle = tiltAngle / 2;
+
+        float BiggerSize = baseImageSize * 1.1f;
+        float SmallerSize = baseImageSize * 0.8f;
+        float BiggerName = baseNameSize * 1.1f;
+        float SmallerName = baseNameSize * 0.8f;
+
+        if(baseAngle == -15)
         {
-            baseAngle -= 360;
+           Answer_Left.transform.DOScale(new Vector3(BiggerSize, BiggerSize, 1), 0.2f)
+               .SetEase(Ease.OutQuad);
+
+           Answer_Right.transform.DOScale(new Vector3(SmallerSize, SmallerSize, 1), 0.2f)
+               .SetEase(Ease.OutQuad);
+
+           Answer_Left_Name.transform.DOScale(new Vector3(BiggerName, BiggerName, 1), 0.2f)
+               .SetEase(Ease.OutQuad);
+
+           Answer_Right_Name.transform.DOScale(new Vector3(SmallerName, SmallerName, 1), 0.2f)
+               .SetEase(Ease.OutQuad);
+
+           //GetComponent<TrolleyMoveController>().trolleyObject.transform.DOLocalRotate(
+           //    new Vector3(0, 0, 6),
+           //    0.2f
+           //    );
+        }
+        else if(baseAngle == 15)
+        {
+           Answer_Left.transform.DOScale(new Vector3(SmallerSize, SmallerSize, 1), 0.2f)
+               .SetEase(Ease.OutQuad);
+
+           Answer_Right.transform.DOScale(new Vector3(BiggerSize, BiggerSize, 1), 0.2f)
+               .SetEase(Ease.OutQuad);
+
+           Answer_Left_Name.transform.DOScale(new Vector3(SmallerName, SmallerName, 1), 0.2f)
+               .SetEase(Ease.OutQuad);
+
+           Answer_Right_Name.transform.DOScale(new Vector3(BiggerName, BiggerName, 1), 0.2f)
+               .SetEase(Ease.OutQuad);
+
+        }
+        else
+        {
+            if(prevAngle == -15 || prevAngle == 15)
+            {
+                Answer_Left.transform.DOScale(new Vector3(baseImageSize, baseImageSize, 1), 0.2f)
+                    .SetEase(Ease.OutQuad);
+
+               Answer_Right.transform.DOScale(new Vector3(baseImageSize, baseImageSize, 1), 0.2f)
+                   .SetEase(Ease.OutQuad);
+
+           Answer_Left_Name.transform.DOScale(new Vector3(baseNameSize, baseNameSize, 1), 0.2f)
+                   .SetEase(Ease.OutQuad);
+
+           Answer_Right_Name.transform.DOScale(new Vector3(baseNameSize, baseNameSize, 1), 0.2f)
+                   .SetEase(Ease.OutQuad);
+            }
+
         }
 
-        float tiltAngle = Mathf.Clamp(baseAngle, -30, 30);
-        float sizeScale = (tiltAngle / 90) + 1;
+        prevAngle = baseAngle;
 
-        float trolleyAngle = tiltAngle / 2;
-
+        
 
 
-        float leftImageSize = baseImageSize * (2 - sizeScale);
-        float rightImageSize = baseImageSize * sizeScale;
+        // float leftImageSize = baseImageSize * (2 - sizeScale);
+        // float rightImageSize = baseImageSize * sizeScale;
 
-        float leftNameSize = baseNameSize * (2 - sizeScale);
-        float rightNameSize = baseNameSize * sizeScale;
+        // float leftNameSize = baseNameSize * (2 - sizeScale);
+        // float rightNameSize = baseNameSize * sizeScale;
 
-        Answer_Left.transform.localScale = new Vector3(leftImageSize, leftImageSize, 1);
-        Answer_Right.transform.localScale = new Vector3(rightImageSize, rightImageSize, 1);
-        Answer_Left_Name.transform.localScale = new Vector3(leftNameSize, leftNameSize, 1);
-        Answer_Right_Name.transform.localScale = new Vector3(rightNameSize, rightNameSize, 1);
+        // Answer_Left.transform.localScale = new Vector3(leftImageSize, leftImageSize, 1);
+        // Answer_Right.transform.localScale = new Vector3(rightImageSize, rightImageSize, 1);
+        // Answer_Left_Name.transform.localScale = new Vector3(leftNameSize, leftNameSize, 1);
+        // Answer_Right_Name.transform.localScale = new Vector3(rightNameSize, rightNameSize, 1);
 
         //tiltedTrolleyObject.transform.DOLocalRotate(
         //    new Vector3(0, 0, -12),
         //    0.2f
         //    );
 
-        tiltedTrolleyObject.transform.localRotation = Quaternion.Euler(0, 0, -trolleyAngle);
+        // tiltedTrolleyObject.transform.localRotation = Quaternion.Euler(0, 0, -trolleyAngle);
 
 
-        //PC ƒeƒXƒg—pƒXƒNƒŠƒvƒg
+
+
+        //PC ï¿½eï¿½Xï¿½gï¿½pï¿½Xï¿½Nï¿½ï¿½ï¿½vï¿½g
         //float BiggerSize = baseImageSize * 1.1f;
         //float SmallerSize = baseImageSize * 0.8f;
         //float BiggerName = baseNameSize * 1.1f;
@@ -946,6 +1014,31 @@ public class SplineController : MonoBehaviour
         //        );
 
         //}
+    }
+
+    public float detectAngle()
+    {
+        var dir = Vector3.zero;
+		dir.x = Input.acceleration.x;
+		dir.y = Input.acceleration.y;
+		dir.z = Input.acceleration.z;
+
+        float angle;
+
+        if(dir.x > 0.1)
+        {
+            angle = 15;
+        }
+        else if(dir.x < -0.1)
+        {
+            angle = -15;
+        }
+        else
+        {
+            angle = 0;
+        }
+        Debug.Log(dir.x + " " + dir.y + " " + dir.z);
+        return angle;
     }
 
 }
