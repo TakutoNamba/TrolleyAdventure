@@ -828,97 +828,97 @@ public class SplineController : MonoBehaviour
 
         
 
-        // Quaternion rotation = Input.gyro.attitude;
+        //// Quaternion rotation = Input.gyro.attitude;
 
 
-        float baseAngle = detectAngle();
+        //float baseAngle = detectAngle();
 
-        // if (baseAngle > 180)
-        // {
-        //     baseAngle -= 360;
-        // }
+        //// if (baseAngle > 180)
+        //// {
+        ////     baseAngle -= 360;
+        //// }
 
-        // float tiltAngle = Mathf.Clamp(baseAngle, -30, 30);
-        // float sizeScale = (tiltAngle / 90) + 1;
-        // float trolleyAngle = tiltAngle / 2;
+        //// float tiltAngle = Mathf.Clamp(baseAngle, -30, 30);
+        //// float sizeScale = (tiltAngle / 90) + 1;
+        //// float trolleyAngle = tiltAngle / 2;
 
-        float BiggerSize = baseImageSize * 1.1f;
-        float SmallerSize = baseImageSize * 0.8f;
-        float BiggerName = baseNameSize * 1.1f;
-        float SmallerName = baseNameSize * 0.8f;
+        //float BiggerSize = baseImageSize * 1.1f;
+        //float SmallerSize = baseImageSize * 0.8f;
+        //float BiggerName = baseNameSize * 1.1f;
+        //float SmallerName = baseNameSize * 0.8f;
 
-        if(baseAngle == -15)
-        {
-           Answer_Left.transform.DOScale(new Vector3(BiggerSize, BiggerSize, 1), 0.2f)
-               .SetEase(Ease.OutQuad);
+        //if(baseAngle == -15)
+        //{
+        //   Answer_Left.transform.DOScale(new Vector3(BiggerSize, BiggerSize, 1), 0.2f)
+        //       .SetEase(Ease.OutQuad);
 
-           Answer_Right.transform.DOScale(new Vector3(SmallerSize, SmallerSize, 1), 0.2f)
-               .SetEase(Ease.OutQuad);
+        //   Answer_Right.transform.DOScale(new Vector3(SmallerSize, SmallerSize, 1), 0.2f)
+        //       .SetEase(Ease.OutQuad);
 
-           Answer_Left_Name.transform.DOScale(new Vector3(BiggerName, BiggerName, 1), 0.2f)
-               .SetEase(Ease.OutQuad);
+        //   Answer_Left_Name.transform.DOScale(new Vector3(BiggerName, BiggerName, 1), 0.2f)
+        //       .SetEase(Ease.OutQuad);
 
-           Answer_Right_Name.transform.DOScale(new Vector3(SmallerName, SmallerName, 1), 0.2f)
-               .SetEase(Ease.OutQuad);
+        //   Answer_Right_Name.transform.DOScale(new Vector3(SmallerName, SmallerName, 1), 0.2f)
+        //       .SetEase(Ease.OutQuad);
 
-            tiltedTrolleyObject.transform.DOLocalRotate(
-               new Vector3(0, 0, 12),
-               0.2f
-               );
+        //    tiltedTrolleyObject.transform.DOLocalRotate(
+        //       new Vector3(0, 0, 12),
+        //       0.2f
+        //       );
 
-           //GetComponent<TrolleyMoveController>().trolleyObject.transform.DOLocalRotate(
-           //    new Vector3(0, 0, 6),
-           //    0.2f
-           //    );
-        }
-        else if(baseAngle == 15)
-        {
-           Answer_Left.transform.DOScale(new Vector3(SmallerSize, SmallerSize, 1), 0.2f)
-               .SetEase(Ease.OutQuad);
+        //   //GetComponent<TrolleyMoveController>().trolleyObject.transform.DOLocalRotate(
+        //   //    new Vector3(0, 0, 6),
+        //   //    0.2f
+        //   //    );
+        //}
+        //else if(baseAngle == 15)
+        //{
+        //   Answer_Left.transform.DOScale(new Vector3(SmallerSize, SmallerSize, 1), 0.2f)
+        //       .SetEase(Ease.OutQuad);
 
-           Answer_Right.transform.DOScale(new Vector3(BiggerSize, BiggerSize, 1), 0.2f)
-               .SetEase(Ease.OutQuad);
+        //   Answer_Right.transform.DOScale(new Vector3(BiggerSize, BiggerSize, 1), 0.2f)
+        //       .SetEase(Ease.OutQuad);
 
-           Answer_Left_Name.transform.DOScale(new Vector3(SmallerName, SmallerName, 1), 0.2f)
-               .SetEase(Ease.OutQuad);
+        //   Answer_Left_Name.transform.DOScale(new Vector3(SmallerName, SmallerName, 1), 0.2f)
+        //       .SetEase(Ease.OutQuad);
 
-           Answer_Right_Name.transform.DOScale(new Vector3(BiggerName, BiggerName, 1), 0.2f)
-               .SetEase(Ease.OutQuad);
+        //   Answer_Right_Name.transform.DOScale(new Vector3(BiggerName, BiggerName, 1), 0.2f)
+        //       .SetEase(Ease.OutQuad);
 
-            tiltedTrolleyObject.transform.DOLocalRotate(
-               new Vector3(0, 0, -12),
-               0.2f
-               );
+        //    tiltedTrolleyObject.transform.DOLocalRotate(
+        //       new Vector3(0, 0, -12),
+        //       0.2f
+        //       );
 
-        }
-        else
-        {
-            if(prevAngle == -15 || prevAngle == 15)
-            {
-                Answer_Left.transform.DOScale(new Vector3(baseImageSize, baseImageSize, 1), 0.2f)
-                    .SetEase(Ease.OutQuad);
+        //}
+        //else
+        //{
+        //    if(prevAngle == -15 || prevAngle == 15)
+        //    {
+        //        Answer_Left.transform.DOScale(new Vector3(baseImageSize, baseImageSize, 1), 0.2f)
+        //            .SetEase(Ease.OutQuad);
 
-               Answer_Right.transform.DOScale(new Vector3(baseImageSize, baseImageSize, 1), 0.2f)
-                   .SetEase(Ease.OutQuad);
+        //       Answer_Right.transform.DOScale(new Vector3(baseImageSize, baseImageSize, 1), 0.2f)
+        //           .SetEase(Ease.OutQuad);
 
-           Answer_Left_Name.transform.DOScale(new Vector3(baseNameSize, baseNameSize, 1), 0.2f)
-                   .SetEase(Ease.OutQuad);
+        //   Answer_Left_Name.transform.DOScale(new Vector3(baseNameSize, baseNameSize, 1), 0.2f)
+        //           .SetEase(Ease.OutQuad);
 
-           Answer_Right_Name.transform.DOScale(new Vector3(baseNameSize, baseNameSize, 1), 0.2f)
-                   .SetEase(Ease.OutQuad);
+        //   Answer_Right_Name.transform.DOScale(new Vector3(baseNameSize, baseNameSize, 1), 0.2f)
+        //           .SetEase(Ease.OutQuad);
 
 
-            tiltedTrolleyObject.transform.DOLocalRotate(
-               new Vector3(0, 0, 0),
-               0.2f
-               );
-            }
+        //    tiltedTrolleyObject.transform.DOLocalRotate(
+        //       new Vector3(0, 0, 0),
+        //       0.2f
+        //       );
+        //    }
 
-        }
+        //}
 
-        prevAngle = baseAngle;
+        //prevAngle = baseAngle;
 
-        
+
 
 
         // float leftImageSize = baseImageSize * (2 - sizeScale);
@@ -943,93 +943,93 @@ public class SplineController : MonoBehaviour
 
 
         //PC �e�X�g�p�X�N���v�g
-        //float BiggerSize = baseImageSize * 1.1f;
-        //float SmallerSize = baseImageSize * 0.8f;
-        //float BiggerName = baseNameSize * 1.1f;
-        //float SmallerName = baseNameSize * 0.8f;
+        float BiggerSize = baseImageSize * 1.1f;
+        float SmallerSize = baseImageSize * 0.8f;
+        float BiggerName = baseNameSize * 1.1f;
+        float SmallerName = baseNameSize * 0.8f;
 
-        //if (Input.GetKeyDown(KeyCode.A) && Answer_Left.transform.localScale.x == Answer_Right.transform.localScale.x)
-        //{
-        //    Answer_Left.transform.DOScale(new Vector3(BiggerSize, BiggerSize, 1), 0.2f)
-        //        .SetEase(Ease.OutQuad);
+        if (Input.GetKeyDown(KeyCode.A) && Answer_Left.transform.localScale.x == Answer_Right.transform.localScale.x)
+        {
+            Answer_Left.transform.DOScale(new Vector3(BiggerSize, BiggerSize, 1), 0.2f)
+                .SetEase(Ease.OutQuad);
 
-        //    Answer_Right.transform.DOScale(new Vector3(SmallerSize, SmallerSize, 1), 0.2f)
-        //        .SetEase(Ease.OutQuad);
+            Answer_Right.transform.DOScale(new Vector3(SmallerSize, SmallerSize, 1), 0.2f)
+                .SetEase(Ease.OutQuad);
 
-        //    Answer_Left_Name.transform.DOScale(new Vector3(BiggerName, BiggerName, 1), 0.2f)
-        //        .SetEase(Ease.OutQuad);
+            Answer_Left_Name.transform.DOScale(new Vector3(BiggerName, BiggerName, 1), 0.2f)
+                .SetEase(Ease.OutQuad);
 
-        //    Answer_Right_Name.transform.DOScale(new Vector3(SmallerName, SmallerName, 1), 0.2f)
-        //        .SetEase(Ease.OutQuad);
+            Answer_Right_Name.transform.DOScale(new Vector3(SmallerName, SmallerName, 1), 0.2f)
+                .SetEase(Ease.OutQuad);
 
-        //    //GetComponent<TrolleyMoveController>().trolleyObject.transform.DOLocalRotate(
-        //    //    new Vector3(0, 0, 6),
-        //    //    0.2f
-        //    //    );
+            //GetComponent<TrolleyMoveController>().trolleyObject.transform.DOLocalRotate(
+            //    new Vector3(0, 0, 6),
+            //    0.2f
+            //    );
 
-        //}
-        //else if (Input.GetKeyDown(KeyCode.S) & Answer_Right.transform.localScale.x == Answer_Left.transform.localScale.x)
-        //{
-        //    Answer_Left.transform.DOScale(new Vector3(SmallerSize, SmallerSize, 1), 0.2f)
-        //        .SetEase(Ease.OutQuad);
+        }
+        else if (Input.GetKeyDown(KeyCode.S) & Answer_Right.transform.localScale.x == Answer_Left.transform.localScale.x)
+        {
+            Answer_Left.transform.DOScale(new Vector3(SmallerSize, SmallerSize, 1), 0.2f)
+                .SetEase(Ease.OutQuad);
 
-        //    Answer_Right.transform.DOScale(new Vector3(BiggerSize, BiggerSize, 1), 0.2f)
-        //        .SetEase(Ease.OutQuad);
+            Answer_Right.transform.DOScale(new Vector3(BiggerSize, BiggerSize, 1), 0.2f)
+                .SetEase(Ease.OutQuad);
 
-        //    Answer_Left_Name.transform.DOScale(new Vector3(SmallerName, SmallerName, 1), 0.2f)
-        //        .SetEase(Ease.OutQuad);
+            Answer_Left_Name.transform.DOScale(new Vector3(SmallerName, SmallerName, 1), 0.2f)
+                .SetEase(Ease.OutQuad);
 
-        //    Answer_Right_Name.transform.DOScale(new Vector3(BiggerName, BiggerName, 1), 0.2f)
-        //        .SetEase(Ease.OutQuad);
+            Answer_Right_Name.transform.DOScale(new Vector3(BiggerName, BiggerName, 1), 0.2f)
+                .SetEase(Ease.OutQuad);
 
-        //    //GetComponent<TrolleyMoveController>().trolleyObject.transform.DOLocalRotate(
-        //    //    new Vector3(0, 0, -6),
-        //    //    0.2f
-        //    //    );
+            //GetComponent<TrolleyMoveController>().trolleyObject.transform.DOLocalRotate(
+            //    new Vector3(0, 0, -6),
+            //    0.2f
+            //    );
 
-        //}
-        //else if (Input.GetKeyDown(KeyCode.A) && Answer_Left.transform.localScale.x < Answer_Right.transform.localScale.x)
-        //{
-        //    Answer_Left.transform.DOScale(new Vector3(BiggerSize, BiggerSize, 1), 0.4f)
-        //        .SetEase(Ease.OutQuad);
+        }
+        else if (Input.GetKeyDown(KeyCode.A) && Answer_Left.transform.localScale.x < Answer_Right.transform.localScale.x)
+        {
+            Answer_Left.transform.DOScale(new Vector3(BiggerSize, BiggerSize, 1), 0.4f)
+                .SetEase(Ease.OutQuad);
 
-        //    Answer_Right.transform.DOScale(new Vector3(SmallerSize, SmallerSize, 1), 0.4f)
-        //        .SetEase(Ease.OutQuad);
+            Answer_Right.transform.DOScale(new Vector3(SmallerSize, SmallerSize, 1), 0.4f)
+                .SetEase(Ease.OutQuad);
 
-        //    Answer_Left_Name.transform.DOScale(new Vector3(BiggerName, BiggerName, 1), 0.4f)
-        //        .SetEase(Ease.OutQuad);
+            Answer_Left_Name.transform.DOScale(new Vector3(BiggerName, BiggerName, 1), 0.4f)
+                .SetEase(Ease.OutQuad);
 
-        //    Answer_Right_Name.transform.DOScale(new Vector3(SmallerName, SmallerName, 1), 0.4f)
-        //        .SetEase(Ease.OutQuad);
+            Answer_Right_Name.transform.DOScale(new Vector3(SmallerName, SmallerName, 1), 0.4f)
+                .SetEase(Ease.OutQuad);
 
-        //    tiltedTrolleyObject.transform.DOLocalRotate(
-        //        new Vector3(0, 0, 12),
-        //        0.2f
-        //        );
+            tiltedTrolleyObject.transform.DOLocalRotate(
+                new Vector3(0, 0, 12),
+                0.2f
+                );
 
 
 
-        //}
-        //else if (Input.GetKeyDown(KeyCode.S) && Answer_Left.transform.localScale.x > Answer_Right.transform.localScale.x)
-        //{
-        //    Answer_Left.transform.DOScale(new Vector3(SmallerSize, SmallerSize, 1), 0.4f)
-        //        .SetEase(Ease.OutQuad);
+        }
+        else if (Input.GetKeyDown(KeyCode.S) && Answer_Left.transform.localScale.x > Answer_Right.transform.localScale.x)
+        {
+            Answer_Left.transform.DOScale(new Vector3(SmallerSize, SmallerSize, 1), 0.4f)
+                .SetEase(Ease.OutQuad);
 
-        //    Answer_Right.transform.DOScale(new Vector3(BiggerSize, BiggerSize, 1), 0.4f)
-        //        .SetEase(Ease.OutQuad);
+            Answer_Right.transform.DOScale(new Vector3(BiggerSize, BiggerSize, 1), 0.4f)
+                .SetEase(Ease.OutQuad);
 
-        //    Answer_Left_Name.transform.DOScale(new Vector3(SmallerName, SmallerName, 1), 0.4f)
-        //        .SetEase(Ease.OutQuad);
+            Answer_Left_Name.transform.DOScale(new Vector3(SmallerName, SmallerName, 1), 0.4f)
+                .SetEase(Ease.OutQuad);
 
-        //    Answer_Right_Name.transform.DOScale(new Vector3(BiggerName, BiggerName, 1), 0.4f)
-        //        .SetEase(Ease.OutQuad);
+            Answer_Right_Name.transform.DOScale(new Vector3(BiggerName, BiggerName, 1), 0.4f)
+                .SetEase(Ease.OutQuad);
 
-        //    tiltedTrolleyObject.transform.DOLocalRotate(
-        //        new Vector3(0, 0, -12),
-        //        0.2f
-        //        );
+            tiltedTrolleyObject.transform.DOLocalRotate(
+                new Vector3(0, 0, -12),
+                0.2f
+                );
 
-        //}
+        }
     }
 
     public float detectAngle()
