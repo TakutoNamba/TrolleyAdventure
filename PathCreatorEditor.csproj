@@ -300,58 +300,58 @@
         <HintPath>/Applications/Unity/Hub/Editor/2022.1.14f1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Plastic.Newtonsoft.Json">
-        <HintPath>/Users/nanbatakuto/Desktop/final_ios/TrolleyAdventure/Library/PackageCache/com.unity.collab-proxy@1.17.1/Lib/Editor/PlasticSCM/Unity.Plastic.Newtonsoft.Json.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/PackageCache/com.unity.collab-proxy@1.17.1/Lib/Editor/PlasticSCM/Unity.Plastic.Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Plastic.Antlr3.Runtime">
-        <HintPath>/Users/nanbatakuto/Desktop/final_ios/TrolleyAdventure/Library/PackageCache/com.unity.collab-proxy@1.17.1/Lib/Editor/PlasticSCM/Unity.Plastic.Antlr3.Runtime.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/PackageCache/com.unity.collab-proxy@1.17.1/Lib/Editor/PlasticSCM/Unity.Plastic.Antlr3.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.YamlDotNet">
-        <HintPath>/Users/nanbatakuto/Desktop/final_ios/TrolleyAdventure/Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll</HintPath>
     </Reference>
     <Reference Include="DOTweenEditor">
-        <HintPath>/Users/nanbatakuto/Desktop/final_ios/TrolleyAdventure/Assets/Plugins/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Assets/Plugins/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Cecil.Mdb">
-        <HintPath>/Users/nanbatakuto/Desktop/final_ios/TrolleyAdventure/Library/PackageCache/com.unity.burst@1.7.3/Unity.Burst.CodeGen/Unity.Burst.Cecil.Mdb.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/PackageCache/com.unity.burst@1.7.3/Unity.Burst.CodeGen/Unity.Burst.Cecil.Mdb.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.TextureAssets">
-        <HintPath>/Users/nanbatakuto/Desktop/final_ios/TrolleyAdventure/Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/EditorAssetResources/Unity.VisualScripting.TextureAssets.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/EditorAssetResources/Unity.VisualScripting.TextureAssets.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.IonicZip">
-        <HintPath>/Users/nanbatakuto/Desktop/final_ios/TrolleyAdventure/Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Unsafe">
-        <HintPath>/Users/nanbatakuto/Desktop/final_ios/TrolleyAdventure/Library/PackageCache/com.unity.burst@1.7.3/Unity.Burst.Unsafe.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/PackageCache/com.unity.burst@1.7.3/Unity.Burst.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Cecil.Pdb">
-        <HintPath>/Users/nanbatakuto/Desktop/final_ios/TrolleyAdventure/Library/PackageCache/com.unity.burst@1.7.3/Unity.Burst.CodeGen/Unity.Burst.Cecil.Pdb.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/PackageCache/com.unity.burst@1.7.3/Unity.Burst.CodeGen/Unity.Burst.Cecil.Pdb.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Cecil">
-        <HintPath>/Users/nanbatakuto/Desktop/final_ios/TrolleyAdventure/Library/PackageCache/com.unity.burst@1.7.3/Unity.Burst.CodeGen/Unity.Burst.Cecil.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/PackageCache/com.unity.burst@1.7.3/Unity.Burst.CodeGen/Unity.Burst.Cecil.dll</HintPath>
     </Reference>
     <Reference Include="log4netPlastic">
-        <HintPath>/Users/nanbatakuto/Desktop/final_ios/TrolleyAdventure/Library/PackageCache/com.unity.collab-proxy@1.17.1/Lib/Editor/PlasticSCM/log4netPlastic.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/PackageCache/com.unity.collab-proxy@1.17.1/Lib/Editor/PlasticSCM/log4netPlastic.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Cecil.Rocks">
-        <HintPath>/Users/nanbatakuto/Desktop/final_ios/TrolleyAdventure/Library/PackageCache/com.unity.burst@1.7.3/Unity.Burst.CodeGen/Unity.Burst.Cecil.Rocks.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/PackageCache/com.unity.burst@1.7.3/Unity.Burst.CodeGen/Unity.Burst.Cecil.Rocks.dll</HintPath>
     </Reference>
     <Reference Include="DOTween">
-        <HintPath>/Users/nanbatakuto/Desktop/final_ios/TrolleyAdventure/Assets/Plugins/Demigiant/DOTween/DOTween.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Assets/Plugins/Demigiant/DOTween/DOTween.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
-        <HintPath>/Users/nanbatakuto/Desktop/final_ios/TrolleyAdventure/Library/PackageCache/com.unity.visualscripting@1.7.8/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/PackageCache/com.unity.visualscripting@1.7.8/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="ReportGeneratorMerged">
-        <HintPath>/Users/nanbatakuto/Desktop/final_ios/TrolleyAdventure/Library/PackageCache/com.unity.testtools.codecoverage@1.1.1/lib/ReportGenerator/ReportGeneratorMerged.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/PackageCache/com.unity.testtools.codecoverage@1.1.1/lib/ReportGenerator/ReportGeneratorMerged.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-        <HintPath>/Users/nanbatakuto/Desktop/final_ios/TrolleyAdventure/Library/PackageCache/com.unity.nuget.newtonsoft-json@3.0.2/Runtime/Newtonsoft.Json.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/PackageCache/com.unity.nuget.newtonsoft-json@3.0.2/Runtime/Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="unityplastic">
-        <HintPath>/Users/nanbatakuto/Desktop/final_ios/TrolleyAdventure/Library/PackageCache/com.unity.collab-proxy@1.17.1/Lib/Editor/PlasticSCM/unityplastic.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/PackageCache/com.unity.collab-proxy@1.17.1/Lib/Editor/PlasticSCM/unityplastic.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
-        <HintPath>/Users/nanbatakuto/Desktop/final_ios/TrolleyAdventure/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
         <HintPath>/Applications/Unity/Hub/Editor/2022.1.14f1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
@@ -735,16 +735,16 @@
         <HintPath>/Applications/Unity/Hub/Editor/2022.1.14f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/netstandard.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-        <HintPath>/Users/nanbatakuto/Desktop/final_ios/TrolleyAdventure/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-        <HintPath>/Users/nanbatakuto/Desktop/final_ios/TrolleyAdventure/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.TestRunner">
-        <HintPath>/Users/nanbatakuto/Desktop/final_ios/TrolleyAdventure/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TestRunner">
-        <HintPath>/Users/nanbatakuto/Desktop/final_ios/TrolleyAdventure/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

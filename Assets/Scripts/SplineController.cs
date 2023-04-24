@@ -124,10 +124,10 @@ public class SplineController : MonoBehaviour
 
             if (state == triggers[1])
             {
-                if(!Input.gyro.enabled)
-                {
-                    Input.gyro.enabled = true;
-                }
+                // if(!Input.gyro.enabled)
+                // {
+                //     Input.gyro.enabled = true;
+                // }
                 if(isCounting)
                 {
                     DetectPlayersAnswer();                   
@@ -135,7 +135,7 @@ public class SplineController : MonoBehaviour
             }
             else
             {
-                Input.gyro.enabled = false;
+                // Input.gyro.enabled = false;
             }
             
 
@@ -1037,7 +1037,7 @@ public class SplineController : MonoBehaviour
         {
             angle = 0;
         }
-        Debug.Log(dir.x + " " + dir.y + " " + dir.z);
+        // Debug.Log(dir.x + " " + dir.y + " " + dir.z);
         return angle;
     }
 
