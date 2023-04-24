@@ -861,6 +861,11 @@ public class SplineController : MonoBehaviour
            Answer_Right_Name.transform.DOScale(new Vector3(SmallerName, SmallerName, 1), 0.2f)
                .SetEase(Ease.OutQuad);
 
+            tiltedTrolleyObject.transform.DOLocalRotate(
+               new Vector3(0, 0, 12),
+               0.2f
+               );
+
            //GetComponent<TrolleyMoveController>().trolleyObject.transform.DOLocalRotate(
            //    new Vector3(0, 0, 6),
            //    0.2f
@@ -880,6 +885,11 @@ public class SplineController : MonoBehaviour
            Answer_Right_Name.transform.DOScale(new Vector3(BiggerName, BiggerName, 1), 0.2f)
                .SetEase(Ease.OutQuad);
 
+            tiltedTrolleyObject.transform.DOLocalRotate(
+               new Vector3(0, 0, -12),
+               0.2f
+               );
+
         }
         else
         {
@@ -896,6 +906,12 @@ public class SplineController : MonoBehaviour
 
            Answer_Right_Name.transform.DOScale(new Vector3(baseNameSize, baseNameSize, 1), 0.2f)
                    .SetEase(Ease.OutQuad);
+
+
+            tiltedTrolleyObject.transform.DOLocalRotate(
+               new Vector3(0, 0, 0),
+               0.2f
+               );
             }
 
         }

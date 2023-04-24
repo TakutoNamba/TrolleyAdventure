@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{ac826c2d-2f8e-1c2d-154a-69c19340ab5b}</ProjectGuid>
+    <ProjectGuid>{26e0e9ae-3418-1426-4db0-326c00be8759}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-firstpass</AssemblyName>
@@ -299,31 +299,31 @@
         <HintPath>/Applications/Unity/Hub/Editor/2022.1.14f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.UnityConnectModule.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Cecil.Mdb">
-        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/PackageCache/com.unity.burst@1.7.3/Unity.Burst.CodeGen/Unity.Burst.Cecil.Mdb.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/iOSAppStudy_Namba/Library/PackageCache/com.unity.burst@1.7.3/Unity.Burst.CodeGen/Unity.Burst.Cecil.Mdb.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Unsafe">
-        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/PackageCache/com.unity.burst@1.7.3/Unity.Burst.Unsafe.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/iOSAppStudy_Namba/Library/PackageCache/com.unity.burst@1.7.3/Unity.Burst.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Cecil.Pdb">
-        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/PackageCache/com.unity.burst@1.7.3/Unity.Burst.CodeGen/Unity.Burst.Cecil.Pdb.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/iOSAppStudy_Namba/Library/PackageCache/com.unity.burst@1.7.3/Unity.Burst.CodeGen/Unity.Burst.Cecil.Pdb.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Cecil">
-        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/PackageCache/com.unity.burst@1.7.3/Unity.Burst.CodeGen/Unity.Burst.Cecil.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/iOSAppStudy_Namba/Library/PackageCache/com.unity.burst@1.7.3/Unity.Burst.CodeGen/Unity.Burst.Cecil.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Cecil.Rocks">
-        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/PackageCache/com.unity.burst@1.7.3/Unity.Burst.CodeGen/Unity.Burst.Cecil.Rocks.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/iOSAppStudy_Namba/Library/PackageCache/com.unity.burst@1.7.3/Unity.Burst.CodeGen/Unity.Burst.Cecil.Rocks.dll</HintPath>
     </Reference>
     <Reference Include="DOTween">
-        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Assets/Plugins/Demigiant/DOTween/DOTween.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/iOSAppStudy_Namba/Assets/Plugins/Demigiant/DOTween/DOTween.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
-        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/PackageCache/com.unity.visualscripting@1.7.8/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/iOSAppStudy_Namba/Library/PackageCache/com.unity.visualscripting@1.7.8/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="ReportGeneratorMerged">
-        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/PackageCache/com.unity.testtools.codecoverage@1.1.1/lib/ReportGenerator/ReportGeneratorMerged.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/iOSAppStudy_Namba/Library/PackageCache/com.unity.testtools.codecoverage@1.1.1/lib/ReportGenerator/ReportGeneratorMerged.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/PackageCache/com.unity.nuget.newtonsoft-json@3.0.2/Runtime/Newtonsoft.Json.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/iOSAppStudy_Namba/Library/PackageCache/com.unity.nuget.newtonsoft-json@3.0.2/Runtime/Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
         <HintPath>/Applications/Unity/Hub/Editor/2022.1.14f1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
@@ -698,158 +698,166 @@
         <HintPath>/Applications/Unity/Hub/Editor/2022.1.14f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/mscorlib.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Splines.Editor">
-        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/ScriptAssemblies/Unity.Splines.Editor.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/iOSAppStudy_Namba/Library/ScriptAssemblies/Unity.Splines.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/iOSAppStudy_Namba/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="CopoCopo.TextMeshProAnimator.Runtime">
-        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/ScriptAssemblies/CopoCopo.TextMeshProAnimator.Runtime.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/iOSAppStudy_Namba/Library/ScriptAssemblies/CopoCopo.TextMeshProAnimator.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/iOSAppStudy_Namba/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Performance.Profile-Analyzer.Editor">
-        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/ScriptAssemblies/Unity.Performance.Profile-Analyzer.Editor.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/iOSAppStudy_Namba/Library/ScriptAssemblies/Unity.Performance.Profile-Analyzer.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Model">
-        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/ScriptAssemblies/Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/iOSAppStudy_Namba/Library/ScriptAssemblies/Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Splines">
-        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/ScriptAssemblies/Unity.Splines.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/iOSAppStudy_Namba/Library/ScriptAssemblies/Unity.Splines.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.State.Editor">
-        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/ScriptAssemblies/Unity.VisualScripting.State.Editor.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/iOSAppStudy_Namba/Library/ScriptAssemblies/Unity.VisualScripting.State.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
-        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/ScriptAssemblies/Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/iOSAppStudy_Namba/Library/ScriptAssemblies/Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ProBuilder">
-        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/ScriptAssemblies/Unity.ProBuilder.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/iOSAppStudy_Namba/Library/ScriptAssemblies/Unity.ProBuilder.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection">
-        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/ScriptAssemblies/Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/iOSAppStudy_Namba/Library/ScriptAssemblies/Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/iOSAppStudy_Namba/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/iOSAppStudy_Namba/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.SpatialTracking">
-        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/iOSAppStudy_Namba/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/iOSAppStudy_Namba/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.EditorCoroutines.Editor">
-        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/ScriptAssemblies/Unity.EditorCoroutines.Editor.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/iOSAppStudy_Namba/Library/ScriptAssemblies/Unity.EditorCoroutines.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.XR.Management">
-        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/ScriptAssemblies/Unity.XR.Management.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/iOSAppStudy_Namba/Library/ScriptAssemblies/Unity.XR.Management.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Mathematics.Editor">
-        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/iOSAppStudy_Namba/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.XR.Oculus.Editor">
-        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/ScriptAssemblies/Unity.XR.Oculus.Editor.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/iOSAppStudy_Namba/Library/ScriptAssemblies/Unity.XR.Oculus.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Flow.Editor">
-        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/ScriptAssemblies/Unity.VisualScripting.Flow.Editor.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/iOSAppStudy_Namba/Library/ScriptAssemblies/Unity.VisualScripting.Flow.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ProBuilder.AddOns.Editor">
-        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/iOSAppStudy_Namba/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
-        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/iOSAppStudy_Namba/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.XR.Management.Editor">
-        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/ScriptAssemblies/Unity.XR.Management.Editor.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/iOSAppStudy_Namba/Library/ScriptAssemblies/Unity.XR.Management.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/iOSAppStudy_Namba/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Core.Editor">
-        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/ScriptAssemblies/Unity.VisualScripting.Core.Editor.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/iOSAppStudy_Namba/Library/ScriptAssemblies/Unity.VisualScripting.Core.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/iOSAppStudy_Namba/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Editor">
-        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/ScriptAssemblies/Unity.Burst.Editor.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/iOSAppStudy_Namba/Library/ScriptAssemblies/Unity.Burst.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Subsystem.Registration">
-        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/ScriptAssemblies/Unity.Subsystem.Registration.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/iOSAppStudy_Namba/Library/ScriptAssemblies/Unity.Subsystem.Registration.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ProBuilder.Editor">
-        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/ScriptAssemblies/Unity.ProBuilder.Editor.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/iOSAppStudy_Namba/Library/ScriptAssemblies/Unity.ProBuilder.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Postprocessing.Editor">
-        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/iOSAppStudy_Namba/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PlasticSCM.Editor">
-        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/iOSAppStudy_Namba/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Flow">
-        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/ScriptAssemblies/Unity.VisualScripting.Flow.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/iOSAppStudy_Namba/Library/ScriptAssemblies/Unity.VisualScripting.Flow.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Services.Core">
-        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/ScriptAssemblies/Unity.Services.Core.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/iOSAppStudy_Namba/Library/ScriptAssemblies/Unity.Services.Core.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Core">
-        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/ScriptAssemblies/Unity.VisualScripting.Core.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/iOSAppStudy_Namba/Library/ScriptAssemblies/Unity.VisualScripting.Core.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Mathematics">
-        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/iOSAppStudy_Namba/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Services.Core.Analytics">
-        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/ScriptAssemblies/Unity.Services.Core.Analytics.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/iOSAppStudy_Namba/Library/ScriptAssemblies/Unity.Services.Core.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst">
-        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/ScriptAssemblies/Unity.Burst.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/iOSAppStudy_Namba/Library/ScriptAssemblies/Unity.Burst.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Postprocessing.Runtime">
-        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/iOSAppStudy_Namba/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
-        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/ScriptAssemblies/Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/iOSAppStudy_Namba/Library/ScriptAssemblies/Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.XR.LegacyInputHelpers">
-        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/iOSAppStudy_Namba/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Shared.Editor">
-        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/ScriptAssemblies/Unity.VisualScripting.Shared.Editor.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/iOSAppStudy_Namba/Library/ScriptAssemblies/Unity.VisualScripting.Shared.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Services.Core.Environments">
-        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/ScriptAssemblies/Unity.Services.Core.Environments.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/iOSAppStudy_Namba/Library/ScriptAssemblies/Unity.Services.Core.Environments.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
-        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/iOSAppStudy_Namba/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.XR.LegacyInputHelpers">
-        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/iOSAppStudy_Namba/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
     </Reference>
     <Reference Include="Unity.XR.Oculus">
-        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/ScriptAssemblies/Unity.XR.Oculus.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/iOSAppStudy_Namba/Library/ScriptAssemblies/Unity.XR.Oculus.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.SpatialTracking">
-        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/iOSAppStudy_Namba/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TestTools.CodeCoverage.Editor">
-        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/ScriptAssemblies/Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/iOSAppStudy_Namba/Library/ScriptAssemblies/Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.State">
-        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/TrolleyAdventure/Library/ScriptAssemblies/Unity.VisualScripting.State.dll</HintPath>
+        <HintPath>/Users/nanbatakuto/takuto_fork/TrolleyAdventure/TrolleyAdventure/iOSAppStudy_Namba/Library/ScriptAssemblies/Unity.VisualScripting.State.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="PathCreatorEditor.csproj">
-      <Project>{a7300ee4-d786-a72f-dafb-373b2aaa0fb0}</Project>
+      <Project>{7bcff918-9deb-f487-d0ff-66b86bf419e6}</Project>
       <Name>PathCreatorEditor</Name>
     </ProjectReference>
     <ProjectReference Include="PathCreator.csproj">
-      <Project>{ed5b80cf-61e5-fad4-968a-805d49da6fce}</Project>
+      <Project>{7700a9d8-c417-fd15-8fdf-af954c0ac1d0}</Project>
       <Name>PathCreator</Name>
+    </ProjectReference>
+    <ProjectReference Include="Tayx.Graphy.Editor.csproj">
+      <Project>{f29ee273-3cac-aa60-4fb5-7644637ff261}</Project>
+      <Name>Tayx.Graphy.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Tayx.Graphy.csproj">
+      <Project>{b2fc321c-77cf-71dd-da3c-fe5fe61a905c}</Project>
+      <Name>Tayx.Graphy</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
